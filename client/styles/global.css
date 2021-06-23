@@ -1,0 +1,12 @@
+:root {
+    /* Default theme */
+    --theme-page-background: #1B2838;
+    --theme-page-text-color: white;
+    --theme-header-background: #171A21;
+    --theme-header-text-color: var(--theme-page-text-color);
+    --theme-footer-background: #2A475E;
+    --theme-footer-text-color: var(--theme-page-text-color);
+    --theme-border-text-color: rgba(255, 255, 255, 0.25);
+    --theme-title-text-color: #66C0F4;
+    --theme-box-background: #2A475E;
+}
