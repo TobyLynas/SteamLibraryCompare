@@ -9,4 +9,6 @@
     --theme-border: rgba(255, 255, 255, 0.25);
     --theme-title-text: #66C0F4;
     --theme-box-background: #2A475E;
+    --theme-button-background: #2F4B67;
+    --theme-button-text: var(--theme-page-text);
 }
