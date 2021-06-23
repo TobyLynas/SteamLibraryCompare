@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hensm/steam-app.git"
+    "url": "git+https://github.com/TobyLynas/SteamLibraryCompare.git"
   },
   "bugs": {
-    "url": "https://github.com/hensm/steam-app/issues"
+    "url": "https://github.com/TobyLynas/SteamLibraryCompare/issues"
   },
-  "homepage": "https://github.com/hensm/steam-app#readme",
+  "homepage": "https://github.com/TobyLynas/SteamLibraryCompare#readme",
   "dependencies": {
     "next": "^11.0.1",
     "react": "^17.0.2",
