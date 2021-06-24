@@ -1,9 +1,9 @@
 .footer {
     display: flex;
     padding: 32px;
-    color: var(--theme-footer-text, #c5c5c5);
     align-items: center;
     justify-content: flex-end;
+    color: var(--theme-footer-text, #c5c5c5);
     background-color: var(--theme-footer-background, #2a475e);
 }
 

@@ -1,0 +1,11 @@
+.topNav {
+    display: flex;
+    padding: 1.5em;
+    background-color: #171a21;
+}
+
+.heading {
+    text-transform: uppercase;
+    color: white;
+    font-size: 2em;
+}
