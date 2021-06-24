@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    padding: 32px;
+    color: var(--theme-footer-text, #c5c5c5);
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--theme-footer-background, #2a475e);
+}
+
+.disclaimer {
+    display: flex;
+    flex-basis: 25%;
+    padding-left: 24px;
+    margin-left: 24px;
+    flex-direction: column;
+    border-left: 2px solid white;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
