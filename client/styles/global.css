@@ -1,14 +1,21 @@
 :root {
     /* Default theme */
-    --theme-page-background: #1B2838;
+    --theme-page-background: #1b2838;
     --theme-page-text: white;
-    --theme-header-background: #171A21;
+    --theme-header-background: #171a21;
     --theme-header-text: var(--theme-page-text);
-    --theme-footer-background: #2A475E;
-    --theme-footer-text: var(--theme-page-text);
+    --theme-footer-background: #2a475e;
+    --theme-footer-text: #c5c5c5;
     --theme-border: rgba(255, 255, 255, 0.25);
-    --theme-title-text: #66C0F4;
-    --theme-box-background: #2A475E;
-    --theme-button-background: #2F4B67;
+    --theme-title-text: #66c0f4;
+    --theme-box-background: #2a475e;
+    --theme-button-background: #2f4b67;
     --theme-button-text: var(--theme-page-text);
+
+    /* Sizes for padding, font size, etc */
+    --theme-xs: 0.5em;
+    --theme-sm: 1em;
+    --theme-md: 1.5em;
+    --theme-lg: 2em;
+    --theme-xlg: 4em;
 }
