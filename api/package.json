@@ -2,8 +2,9 @@
     "name": "steamlibrarycompare-api",
     "version": "0.1.0",
     "scripts": {
-        "dev": "npm run watch -- --onSuccess \"node -r dotenv/config ./build/app.js\"",
+        "dev": "tsc-watch --onSuccess \"npm run start\"",
         "build": "tsc --project ./",
+        "start": "node -r dotenv/config ./build/app.js",
         "lint": "eslint . --ext .ts,.tsx"
     },
     "dependencies": {

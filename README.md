@@ -4,17 +4,17 @@
 
 ### Shared scripts
 
-* `npm run dev`
+* `npm run dev`  
   Builds the project (watching for changes) and starts a development server.
-* `npm run build`
+
+* `npm run build`  
   Builds the project.
-* `npm run lint`
+
+* `npm run start`  
+  Runs the project in production mode. Compile with `npm run build` script first.
+
+* `npm run lint`  
   Runs eslint.
-
-### Client only
-
-* `npm run start`
-  Runs the client in production mode. Compile with `npm run build` script first.
 
 
 ## API:
