@@ -10,7 +10,8 @@
     "skipLibCheck": true,
     "noEmit": true,
     "module": "esnext",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "allowJs": false
   },
   "include": [
     "next-env.d.ts",
