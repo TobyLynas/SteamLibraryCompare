@@ -1,5 +1,5 @@
 {
-  "name": "steam-app",
+  "name": "steamlibrarycompare",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
@@ -7,14 +7,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TobyLynas/SteamLibraryCompare.git"
-  },
-  "bugs": {
-    "url": "https://github.com/TobyLynas/SteamLibraryCompare/issues"
-  },
-  "homepage": "https://github.com/TobyLynas/SteamLibraryCompare#readme",
   "dependencies": {
     "next": "^11.0.1",
     "react": "^17.0.2",
