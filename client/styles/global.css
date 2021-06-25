@@ -19,3 +19,12 @@
     --theme-lg: 2em;
     --theme-xlg: 4em;
 }
+
+body {
+    margin: 0;
+    font-family: inter, Sans-serif;
+}
+
+p {
+    margin: 0;
+}

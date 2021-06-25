@@ -1,19 +1,19 @@
 .footer {
     display: flex;
-    padding: 32px;
+    padding: var(--theme-md);
     align-items: center;
     justify-content: flex-end;
-    color: var(--theme-footer-text, #c5c5c5);
-    background-color: var(--theme-footer-background, #2a475e);
+    color: var(--theme-footer-text);
+    background-color: var(--theme-footer-background);
 }
 
 .disclaimer {
     display: flex;
     flex-basis: 25%;
-    padding-left: 24px;
-    margin-left: 24px;
+    padding-left: var(--theme-sm);
+    margin-left: var(--theme-sm);
     flex-direction: column;
-    border-left: 2px solid white;
+    border-left: 2px solid var(--theme-page-text);
 }
 
 .links {
