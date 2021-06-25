@@ -1,4 +1,4 @@
-.topNav {
+.header {
     display: flex;
     padding: var(--theme-md);
     background-color: var(--theme-header-background);
@@ -6,6 +6,5 @@
 
 .heading {
     text-transform: uppercase;
-    color: var(--theme-page-text);
     font-size: var(--theme-lg);
 }

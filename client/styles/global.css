@@ -23,6 +23,7 @@
 body {
     margin: 0;
     font-family: inter, Sans-serif;
+    color: var(--theme-page-text);
 }
 
 p {

@@ -13,7 +13,7 @@
     padding-left: var(--theme-sm);
     margin-left: var(--theme-sm);
     flex-direction: column;
-    border-left: 2px solid var(--theme-page-text);
+    border-left: 2px solid var(--theme-footer-text);
 }
 
 .links {
