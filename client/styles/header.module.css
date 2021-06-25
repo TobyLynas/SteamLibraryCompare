@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    padding: var(--theme-md);
+    background-color: var(--theme-header-background);
+}
+
+.heading {
+    text-transform: uppercase;
+    font-size: var(--theme-lg);
+}

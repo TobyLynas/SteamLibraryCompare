@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    padding: var(--theme-md);
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--theme-footer-text);
+    background-color: var(--theme-footer-background);
+}
+
+.disclaimer {
+    display: flex;
+    flex-basis: 25%;
+    padding-left: var(--theme-sm);
+    margin-left: var(--theme-sm);
+    flex-direction: column;
+    border-left: 2px solid var(--theme-footer-text);
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
