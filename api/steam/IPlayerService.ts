@@ -8,7 +8,7 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches info about recently played games for a given Steam ID.
      *
-     * @param steamId Steam ID to request for
+     * @param steamId - Steam ID to request for
      * @returns List of recently played games
      */
     async GetRecentlyPlayedGames(
@@ -28,11 +28,10 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches info about games owned by a given Steam ID.
      *
-     * @param steamId Steam ID to request for
-     * @param includeAppInfo Include name/icons with response
-     * @param includePlayedFreeGames Include free games with response
-     * @param appIdsFilter Array of app IDs to restrict to
-     *
+     * @param steamId - Steam ID to request for
+     * @param includeAppInfo - Include name/icons with response
+     * @param includePlayedFreeGames - Include free games with response
+     * @param appIdsFilter - Array of app IDs to restrict to
      * @returns List of owned games
      */
     async GetOwnedGames(
@@ -68,7 +67,7 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches Steam level for a given Steam ID.
      *
-     * @param steamId Steam ID to request for
+     * @param steamId - Steam ID to request for
      * @returns Steam level
      */
     async GetSteamLevel(steamId: string): Promise<GetSteamLevelResponse> {
@@ -82,7 +81,7 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches badges owned by a given Steam ID.
      *
-     * @param steamId Steam ID to request for
+     * @param steamId - Steam ID to request for
      * @returns List of badges
      */
     async GetBadges(steamId: string): Promise<GetBadgesResponse> {
@@ -96,8 +95,8 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches badge's quest info for a given Steam ID.
      *
-     * @param steamId Steam ID to request for
-     * @param badgeId Badge ID to request for
+     * @param steamId - Steam ID to request for
+     * @param badgeId - Badge ID to request for
      * @returns List of quests and completion status
      */
     async GetCommunityBadgeProgress(
@@ -117,8 +116,8 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches info about whether the currently played game is borrowed.
      *
-     * @param steamId Steam ID to request for
-     * @param appIdPlaying App ID of currently played game
+     * @param steamId -Steam ID to request for
+     * @param appIdPlaying - App ID of currently played game
      * @returns Lender Steam ID (or "0" if not borrowed)
      */
     async IsPlayingSharedGame(

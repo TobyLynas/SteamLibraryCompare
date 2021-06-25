@@ -8,8 +8,8 @@ export default class ISteamUser extends SteamworksInterface {
     /**
      * Fetches the friends list for a given steam ID.
      *
-     * @param steamId Steam ID to request for
-     * @param relationship Filter friend relationship (maybe unused)
+     * @param steamId - Steam ID to request for
+     * @param relationship - Filter friend relationship (maybe unused)
      * @returns Friends list object
      */
     async GetFriendList(
@@ -29,7 +29,7 @@ export default class ISteamUser extends SteamworksInterface {
     /**
      * Fetches a records of player bans for a given set of steam IDs.
      *
-     * @param steamIds Array of Steam IDs to request for
+     * @param steamIds - Array of Steam IDs to request for
      * @returns Record of players' bans
      */
     async GetPlayerBans(steamIds: string[]): Promise<GetPlayerBansResponse> {
@@ -43,7 +43,7 @@ export default class ISteamUser extends SteamworksInterface {
     /**
      * Fetches user profile info for a given set of Steam IDs.
      *
-     * @param steamIds Array of Steam IDs to request for
+     * @param steamIds - Array of Steam IDs to request for
      * @returns Players' profile info
      */
     async GetPlayerSummaries(
@@ -59,7 +59,7 @@ export default class ISteamUser extends SteamworksInterface {
     /**
      * Fetches a list of groups containing the given steam ID.
      *
-     * @param steamId Steam ID to request for
+     * @param steamId - Steam ID to request for
      * @returns List of group IDs
      */
     async GetUserGroupList(steamId: string): Promise<GetUserGroupListResponse> {
