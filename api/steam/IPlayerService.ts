@@ -32,6 +32,7 @@ export default class IPlayerService extends SteamworksInterface {
      * @param includeAppInfo Include name/icons with response
      * @param includePlayedFreeGames Include free games with response
      * @param appIdsFilter Array of app IDs to restrict to
+     *
      * @returns List of owned games
      */
     async GetOwnedGames(
@@ -94,9 +95,10 @@ export default class IPlayerService extends SteamworksInterface {
 
     /**
      * Fetches badge's quest info for a given Steam ID.
+     *
      * @param steamId Steam ID to request for
      * @param badgeId Badge ID to request for
-     * @returns
+     * @returns List of quests and completion status
      */
     async GetCommunityBadgeProgress(
         steamId: string,
