@@ -69,6 +69,27 @@ export default class ISteamUser extends SteamworksInterface {
 
         return res.data;
     }
+
+    /**
+     * Fetches the Steam ID of a given vanity URL name.
+     *
+     * @param vanityUrl - Vanity URL to request Steam ID for
+     * @param urlType - Type of vanity URL
+     * @returns Steam ID (if found)
+     */
+    async ResolveVanityURL(
+        vanityUrl: string,
+        urlType?: number
+    ): Promise<ResolveVanityUrlResponse> {
+        const res = await this.ax.get("/ResolveVanityURL/v1/", {
+            params: {
+                vanityurl: vanityUrl,
+                url_type: urlType
+            }
+        });
+
+        return res.data;
+    }
 }
 
 type GetFriendListRelationship = "all" | "friend";
@@ -122,4 +143,9 @@ interface GetUserGroupListResponse {
     groups: Array<{
         gid: string;
     }>;
+}
+
+interface ResolveVanityUrlResponse {
+    steamid: string;
+    success: number;
 }

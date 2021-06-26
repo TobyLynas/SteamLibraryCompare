@@ -13,7 +13,7 @@ export default class IPlayerService extends SteamworksInterface {
      */
     async GetRecentlyPlayedGames(
         steamId: string,
-        count: number = 0
+        count = 0
     ): Promise<GetRecentlyPlayedGamesResponse> {
         const res = await this.ax.get("/GetRecentlyPlayedGames/v1/", {
             params: {
