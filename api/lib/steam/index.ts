@@ -11,6 +11,13 @@ const PROFILE_VANITY_PATTERN =
 
 export { User };
 
+/**
+ * Main Steam API wrapper class.
+ *
+ * @remarks
+ *   Provides access to various Steam-related API functionality. Requires a valid
+ *   Steam Web API key.
+ */
 export default class Steam {
     private api: SteamworksWebAPI;
 
