@@ -6,8 +6,6 @@ import {
 } from "./SteamworksWebAPI/ISteamUser";
 import { Game as IPlayerServiceGame } from "./SteamworksWebAPI/IPlayerService";
 
-import Game from "./Game";
-
 /**
  * User-related Steam API functionality.
  *
@@ -96,7 +94,7 @@ export default class User {
      * @param opts - Additional options
      * @returns Array of `SteamGame` objects
      */
-    async fetchGames(opts?: FetchGamesOpts): Promise<Array<UserGame>> {
+    async fetchGames(opts?: FetchGamesOpts): Promise<Array<Game>> {
         const res = await this.api.IPlayerService.GetOwnedGames(
             this.steamId,
             opts?.includeDetails ?? false,
@@ -105,24 +103,22 @@ export default class User {
         );
 
         // Convert to Game objects.
-        return res.response.games.map(mapToUserGame);
+        return res.response.games.map(mapToGame);
     }
 
     /**
      * Fetches user's recently played games (last two weeks).
      *
      * @param opts - Additional options
-     * @returns Array of {@link UserGame} objects.
+     * @returns Array of {@link Game} objects.
      */
-    async fetchRecentGames(
-        opts?: FetchRecentGamesOpts
-    ): Promise<Array<UserGame>> {
+    async fetchRecentGames(opts?: FetchRecentGamesOpts): Promise<Array<Game>> {
         const res = await this.api.IPlayerService.GetRecentlyPlayedGames(
             this.steamId,
             opts?.limit ?? 0
         );
 
-        return res.response.games.map(mapToUserGame);
+        return res.response.games.map(mapToGame);
     }
 }
 
@@ -145,24 +141,24 @@ interface FetchRecentGamesOpts {
     limit?: number;
 }
 
-/**
- * Extended {@link Game} with playtime properties used only with API methods that
- * return user-specific game info.
- */
-export interface UserGame extends Game {
+export interface Game {
+    appId: number;
     playtime: number;
     playtimeRecent: number;
+    name?: string;
+    iconUrl?: string;
+    logoUrl?: string;
 }
 
 /**
- * Takes an API game object and maps it to UserGame.
+ * Takes an API game object and maps it to Game.
  *
  * @param game - Entry obj returned by `GetOwnedGames`/`GetRecentlyPlayedGames`
- * @returns UserGame object.
+ * @returns Game object.
  */
-function mapToUserGame(game: IPlayerServiceGame): UserGame {
+function mapToGame(game: IPlayerServiceGame): Game {
     // Required props
-    const ret: UserGame = {
+    const ret: Game = {
         appId: game.appid,
         playtime: game.playtime_forever,
         playtimeRecent: game.playtime_2weeks ?? 0

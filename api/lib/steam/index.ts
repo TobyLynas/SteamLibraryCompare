@@ -17,7 +17,7 @@ export default class Steam {
     /**
      * Create a new API class instance.
      *
-     * @param apiKey Steamworks Web API key
+     * @param apiKey - Steamworks Web API key
      */
     constructor(apiKey: string) {
         this.api = new SteamworksWebAPI(apiKey);
@@ -26,7 +26,7 @@ export default class Steam {
     /**
      * Get a {@link User} object from a Steam ID.
      *
-     * @param id 64-bit steam ID
+     * @param id - 64-bit steam ID
      * @returns Instance of {@link User}
      */
     async getUserById(id: string): Promise<User> {

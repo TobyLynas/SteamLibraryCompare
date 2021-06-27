@@ -110,7 +110,7 @@ export default class IPlayerService extends SteamworksInterface {
     /**
      * Fetches info about whether the currently played game is borrowed.
      *
-     * @param steamId -Steam ID to request for
+     * @param steamId - Steam ID to request for
      * @param appIdPlaying - App ID of currently played game
      * @returns Lender Steam ID (or "0" if not borrowed)
      */
