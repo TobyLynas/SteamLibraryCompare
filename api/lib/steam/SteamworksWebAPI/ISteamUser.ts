@@ -73,17 +73,17 @@ export default class ISteamUser extends SteamworksInterface {
     /**
      * Fetches the Steam ID of a given vanity URL name.
      *
-     * @param vanityUrl - Vanity URL to request Steam ID for
+     * @param vanityName - Vanity URL name part to request Steam ID for
      * @param urlType - Type of vanity URL
      * @returns Steam ID (if found)
      */
     async ResolveVanityURL(
-        vanityUrl: string,
+        vanityName: string,
         urlType?: number
     ): Promise<ResolveVanityUrlResponse> {
         const res = await this.ax.get("/ResolveVanityURL/v1/", {
             params: {
-                vanityurl: vanityUrl,
+                vanityurl: vanityName,
                 url_type: urlType
             }
         });
@@ -92,9 +92,9 @@ export default class ISteamUser extends SteamworksInterface {
     }
 }
 
-type GetFriendListRelationship = "all" | "friend";
+export type GetFriendListRelationship = "all" | "friend";
 
-interface GetFriendListResponse {
+export interface GetFriendListResponse {
     friendslist: {
         friends: Array<{
             steamid: string;
@@ -104,7 +104,7 @@ interface GetFriendListResponse {
     };
 }
 
-interface GetPlayerBansResponse {
+export interface GetPlayerBansResponse {
     players: Array<{
         SteamId: string;
         CommunityBanned: boolean;
@@ -116,36 +116,58 @@ interface GetPlayerBansResponse {
     }>;
 }
 
-interface GetPlayerSummariesResponse {
+export enum CommunityVisibilityState {
+    Private = 1,
+    Friends,
+    Public
+}
+
+export enum PersonaState {
+    Offline,
+    Online,
+    Busy,
+    Away,
+    Snooze
+}
+
+export interface PlayerSummary {
+    steamid: string;
+    communityvisibilitystate: CommunityVisibilityState;
+    profilestate: number;
+    personaname: string;
+    profileurl: string;
+    avatar: string;
+    avatarmedium: string;
+    avatarfull: string;
+    avatarhash: string;
+    personastate: PersonaState;
+    lastlogoff?: number;
+    primaryclanid?: string;
+    timecreated?: number;
+    personastateflags?: number;
+    loccountrycode?: string;
+    realname?: string;
+}
+
+export interface GetPlayerSummariesResponse {
     response: {
-        players: Array<{
-            steamid: string;
-            communityvisibilitystate: number;
-            profilestate: number;
-            personaname: string;
-            profileurl: string;
-            avatar: string;
-            avatarmedium: string;
-            avatarfull: string;
-            avatarhash: string;
-            lastlogoff: number;
-            personastate: number;
-            primaryclanid: string;
-            timecreated: number;
-            personastateflags: number;
-            loccountrycode: string;
+        players: PlayerSummary[];
+    };
+}
+
+export interface GetUserGroupListResponse {
+    response: {
+        success: boolean;
+        groups?: Array<{
+            gid: string;
         }>;
     };
 }
 
-interface GetUserGroupListResponse {
-    success: boolean;
-    groups: Array<{
-        gid: string;
-    }>;
-}
-
-interface ResolveVanityUrlResponse {
-    steamid: string;
-    success: number;
+export interface ResolveVanityUrlResponse {
+    response: {
+        success: number;
+        steamid?: string;
+        message?: string;
+    };
 }

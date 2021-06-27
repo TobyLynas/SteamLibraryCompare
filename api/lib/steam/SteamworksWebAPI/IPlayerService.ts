@@ -49,18 +49,12 @@ export default class IPlayerService extends SteamworksInterface {
         // Handle array parameter
         if (appIdsFilter?.length) {
             appIdsFilter.forEach((appId, index) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (params as any)[`appids_filter[${index}]`] = appId;
             });
         }
 
-        const res = await this.ax.get("/GetOwnedGames/v1/", {
-            params: {
-                steamid: steamId,
-                include_appinfo: includeAppInfo,
-                include_played_free_games: includePlayedFreeGames
-            }
-        });
-
+        const res = await this.ax.get("/GetOwnedGames/v1/", { params });
         return res.data;
     }
 
@@ -135,39 +129,39 @@ export default class IPlayerService extends SteamworksInterface {
     }
 }
 
-interface Game {
+export interface Game {
     appid: number;
     name?: string;
-    playtime_2weeks?: number;
-    playtime_forever?: number;
+    playtime_2weeks: number;
+    playtime_forever: number;
+    playtime_windows_forever: number;
+    playtime_mac_forever: number;
+    playtime_linux_forever: number;
     img_icon_url?: string;
     img_logo_url?: string;
-    playtime_windows_forever?: number;
-    playtime_mac_forever?: number;
-    playtime_linux_forever?: number;
 }
 
-interface GetRecentlyPlayedGamesResponse {
+export interface GetRecentlyPlayedGamesResponse {
     response: {
         total_count: number;
         games: Game[];
     };
 }
 
-interface GetOwnedGamesResponse {
+export interface GetOwnedGamesResponse {
     response: {
         game_count: number;
-        games: Game[];
+        games: Array<Game>;
     };
 }
 
-interface GetSteamLevelResponse {
+export interface GetSteamLevelResponse {
     response: {
         player_level: number;
     };
 }
 
-interface GetBadgesResponse {
+export interface GetBadgesResponse {
     response: {
         badges: Array<{
             badgeid: number;
@@ -186,7 +180,7 @@ interface GetBadgesResponse {
     };
 }
 
-interface GetCommunityBadgeProgressResponse {
+export interface GetCommunityBadgeProgressResponse {
     response: {
         quests: Array<{
             questid: number;
@@ -195,7 +189,7 @@ interface GetCommunityBadgeProgressResponse {
     };
 }
 
-interface IsPlayingSharedGameResponse {
+export interface IsPlayingSharedGameResponse {
     response: {
         lender_steamid: number;
     };
