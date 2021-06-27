@@ -1,0 +1,15 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.heading {
+    width: 60%;
+    background-color: rgba(42, 71, 94, 0.8);
+}
+.alignmentBox {
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+}
