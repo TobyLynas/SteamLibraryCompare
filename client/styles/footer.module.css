@@ -9,7 +9,7 @@
 
 .disclaimer {
     display: flex;
-    flex-basis: 25%;
+    white-space: nowrap;
     padding-left: var(--theme-sm);
     margin-left: var(--theme-sm);
     flex-direction: column;
@@ -19,5 +19,6 @@
 .links {
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
 }

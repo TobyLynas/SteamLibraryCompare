@@ -12,8 +12,8 @@ const Footer = () => (
                 href="https://github.com/TobyLynas/SteamLibaryCompare"
             >
                 <Image
-                    width="30px"
-                    height="30px"
+                    width="25px"
+                    height="25px"
                     src="/github-icon.svg"
                     alt="Git Hub logo"
                 />
@@ -21,8 +21,9 @@ const Footer = () => (
         </div>
         <div className={styles.disclaimer}>
             <p>
-                This app is a community website and is not affiliated with Valve
-                or Steam.
+                This app is a community website and is not affiliated
+                <br />
+                with Valve or Steam.
             </p>
             <p>Fair use disclaimer.</p>
         </div>
