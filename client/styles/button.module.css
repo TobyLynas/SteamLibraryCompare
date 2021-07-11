@@ -18,3 +18,9 @@
     color: var(--theme-page-text);
     font-size: x-large;
 }
+.box:active{
+    background-color: var(--theme-button-hover);
+}
+.box:hover{
+    background-color: var(--theme-button-active);
+}

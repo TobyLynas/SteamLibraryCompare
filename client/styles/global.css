@@ -11,6 +11,8 @@
     --theme-box-background: #2a475e;
     --theme-button-background: #2f4b67;
     --theme-button-text: var(--theme-page-text);
+    --theme-button-hover: #224e7a;
+    --theme-button-active: #1898D0;
 
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;
