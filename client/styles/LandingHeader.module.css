@@ -1,70 +1,42 @@
 .landingHeader {
     height: 450px;
     display: flex;
-    justify-content: center;
-}
-
-.imgBox {
-    z-index: 2;
-    width: 80%;
-    position: relative;
     background-image: url("public/landing-back-img.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    justify-content: center;
-    align-items: ;
-    display: flex;
-}
-.transparentBox{
-    width: 60%;
-    display: flex;
-    top: 10%;
-    position: absolute;
-    flex-direction: column;
-}
-.grandText{
-    display: flex;
-    border-bottom: var(--theme-box-accents) 1px solid;
-    padding-bottom: 3px;
-    font-size: var(--theme-md);
-    padding-left: 3px;
-}
-.subText{
-    padding-left: 3px;
-    display: flex;
-    margin-top: 3px;
-    font-size: var(--theme-sm)
-}
-.highlightBox{
-    background-color: var(--theme-box-background);
-    width: 60%;
-    height: 30%;
-    position: absolute;
-    bottom: 35%;
-    display: flex;
-    flex-direction: column;
+    background-size: cover;
     justify-content: center;
     align-items: center;
 }
-.gettingStarted{
-    height: 15%;
-    top: 15%;
-    position: absolute;
-    border-bottom: var(--theme-box-accents) 1px solid;
-    width: 90%;
-    padding-bottom: 2px;
-    font-size: var(--theme-sm);
-}
-.alignmentBox {
-    padding-top: 5%;
+.transparentBox{
     display: flex;
-    width: 90%;
-    height: 20%;
-    flex-direction: row;
+    flex-direction: column;
+    width: 60%;
+    justify-content: space-between;
+}
+.grandText{
+    border-bottom: var(--theme-box-accents) 1px solid;
+    font-size: var(--theme-md);
+    padding-bottom: var(--theme-xs);
+    margin-bottom: var(--theme-xs);
+}
+.subText{
+    font-size: var(--theme-sm);
+    padding-bottom: var(--theme-lg);
 }
 
-.buttonOne{
-    position: absolute;
+.highlightBox{
+    background-color: var(--theme-box-background);
+    padding: var(--theme-md)
+}
+.gettingStarted{
+    border-bottom: var(--theme-box-accents) 1px solid;
+    font-size: var(--theme-md);
+    margin-bottom: var(--theme-sm);
+
+}
+.alignmentBox {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

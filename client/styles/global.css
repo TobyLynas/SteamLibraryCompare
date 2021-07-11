@@ -8,7 +8,7 @@
     --theme-footer-text: #c5c5c5;
     --theme-border: rgba(255, 255, 255, 0.25);
     --theme-title-text: #66c0f4;
-    --theme-box-background: #2a475e;
+    --theme-box-background: rgba(42, 71, 94, 0.8);
     --theme-box-accents: var(--theme-title-text);
     --theme-button-background: #2f4b67;
     --theme-button-text: var(--theme-page-text);
