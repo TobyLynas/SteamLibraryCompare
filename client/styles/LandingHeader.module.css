@@ -1,0 +1,42 @@
+.landingHeader {
+    height: 450px;
+    display: flex;
+    background-image: url("public/landing-back-img.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+.transparentBox{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: space-between;
+}
+.grandText{
+    border-bottom: var(--theme-box-accents) 1px solid;
+    font-size: var(--theme-md);
+    padding-bottom: var(--theme-xs);
+    margin-bottom: var(--theme-xs);
+}
+.subText{
+    font-size: var(--theme-sm);
+    padding-bottom: var(--theme-lg);
+}
+
+.highlightBox{
+    background-color: var(--theme-box-background);
+    padding: var(--theme-md)
+}
+.gettingStarted{
+    border-bottom: var(--theme-box-accents) 1px solid;
+    font-size: var(--theme-md);
+    margin-bottom: var(--theme-sm);
+
+}
+.alignmentBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
