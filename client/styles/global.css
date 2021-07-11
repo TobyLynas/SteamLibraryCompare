@@ -9,6 +9,7 @@
     --theme-border: rgba(255, 255, 255, 0.25);
     --theme-title-text: #66c0f4;
     --theme-box-background: #2a475e;
+    --theme-box-accents: var(--theme-title-text);
     --theme-button-background: #2f4b67;
     --theme-button-text: var(--theme-page-text);
     --theme-button-hover: #224e7a;

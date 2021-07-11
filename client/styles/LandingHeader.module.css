@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     justify-content: center;
-    align-items: center;
+    align-items: ;
     display: flex;
 }
 .transparentBox{
@@ -25,19 +25,19 @@
 }
 .grandText{
     display: flex;
-    border-bottom: #66C0F4 1px solid;
+    border-bottom: var(--theme-box-accents) 1px solid;
     padding-bottom: 3px;
-    font-size: large;
+    font-size: var(--theme-md);
     padding-left: 3px;
 }
 .subText{
     padding-left: 3px;
     display: flex;
     margin-top: 3px;
-    font-size: small;
+    font-size: var(--theme-sm)
 }
 .highlightBox{
-    background-color: rgba(42, 71, 94, 0.8);
+    background-color: var(--theme-box-background);
     width: 60%;
     height: 30%;
     position: absolute;
@@ -51,9 +51,10 @@
     height: 15%;
     top: 15%;
     position: absolute;
-    border-bottom: #66C0F4 1px solid;
+    border-bottom: var(--theme-box-accents) 1px solid;
     width: 90%;
     padding-bottom: 2px;
+    font-size: var(--theme-sm);
 }
 .alignmentBox {
     padding-top: 5%;
