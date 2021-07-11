@@ -1,4 +1,4 @@
-import styles from "../styles/LandingHeader.module.css";
+import styles from "../styles/landingHeader.module.css";
 import Button from "../components/Button";
 const hostRoom = () => {
     console.log("Host Function");
@@ -8,7 +8,7 @@ const joinRoom = () => {
 };
 
 const LandingHeader = () => (
-    <div className={styles.main}>
+    <div className={styles.landingHeader}>
         <div className={styles.imgBox}>
             <div className={styles.transparentBox}>
                 <div className={styles.grandText}>What is this?</div>
