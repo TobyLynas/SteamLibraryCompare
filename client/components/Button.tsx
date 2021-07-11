@@ -5,13 +5,13 @@ import styles from "/styles/button.module.css";
 
 interface ButtonProps {
     text: string;
-    target: any;
+    onClick: any;
 }
 
 const Button = (props: ButtonProps) => {
     return (
         <div className={styles.container}>
-            <button className={styles.box} onClick={() => props.runFunction()}>
+            <button className={styles.box} onClick={() => props.onClick()}>
                 {props.text}
             </button>
         </div>

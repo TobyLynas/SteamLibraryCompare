@@ -18,8 +18,8 @@ const LandingHeader = () => (
                 <div className={styles.gettingStarted}>Getting started</div>
                 <br />
                 <div className={styles.alignmentBox}>
-                    <Button text="Host Room" runFunction={hostRoom} />
-                    <Button text="Join Room" runFunction={joinRoom} />
+                    <Button text="Host Room" onClick={hostRoom} />
+                    <Button text="Join Room" onClick={joinRoom} />
                 </div>
             </div>
         </div>
