@@ -1,18 +1,36 @@
 import express from "express";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 
-if (!process.env.PORT) {
-    console.error("err: missing port!");
+import authRouter from "./routes/auth";
+import proxyRouter from "./routes/proxy";
+
+// Check environment variables are set
+if (
+    !process.env.PORT ||
+    !process.env.BASE_URL ||
+    !process.env.FRONTEND_URL ||
+    !process.env.JWT_SECRET ||
+    !process.env.API_KEY_STEAM
+) {
+    console.error("err: missing config details!");
     process.exit(1);
 }
 
 const app = express();
-app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Hello, world!");
 });
 
+// Only allow in-browser API requests from frontend origin
+const corsOpts: CorsOptions = {
+    origin: process.env.FRONTEND_URL
+};
+
+// Add routes
+app.use("/auth", authRouter);
+app.use("/proxy", cors(corsOpts), proxyRouter);
+
 app.listen(process.env.PORT, () => {
-    console.log(`Listening on localhost:${process.env.PORT}...`);
+    console.log(`Listening on ${process.env.BASE_URL}...`);
 });
