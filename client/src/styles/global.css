@@ -24,9 +24,15 @@
 }
 
 body {
-    margin: 0;
-    font-family: inter, Sans-serif;
     color: var(--theme-page-text);
+    font-family: "Inter", sans-serif;
+    margin: 0;
+}
+
+@supports (font-variation-settings: normal) {
+    body {
+        font-family: "Inter var", sans-serif;
+    }
 }
 
 p {
