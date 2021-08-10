@@ -7,9 +7,9 @@
     padding: var(--theme-xs);
     margin: var(--theme-xs);
 }
-.button:active {
+.button:hover {
     background-color: var(--theme-button-hover);
 }
-.button:hover {
+.button:active {
     background-color: var(--theme-button-active);
 }

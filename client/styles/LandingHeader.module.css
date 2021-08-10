@@ -8,29 +8,29 @@
     align-items: center;
     width: 100vw;
 }
-.transparentBox{
+.transparentBox {
     display: flex;
     flex-direction: column;
     width: 80%;
     justify-content: space-between;
     margin: var(--theme-lg);
 }
-.grandText{
+.grandText {
     border-bottom: var(--theme-box-accents) 1px solid;
     font-size: var(--theme-md);
     padding-bottom: var(--theme-xs);
     margin-bottom: var(--theme-xs);
 }
-.subText{
+.subText {
     font-size: var(--theme-sm);
     padding-bottom: var(--theme-lg);
 }
 
-.highlightBox{
+.highlightBox {
     background-color: var(--theme-box-background);
     padding: var(--theme-md)
 }
-.gettingStarted{
+.gettingStarted {
     border-bottom: var(--theme-box-accents) 1px solid;
     font-size: var(--theme-md);
     margin-bottom: var(--theme-sm);
