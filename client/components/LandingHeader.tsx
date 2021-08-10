@@ -5,14 +5,6 @@ interface LandingHeaderProps {
     onClickHost: any;
     onClickJoin: any;
 }
-
-const hostRoom = () => {
-    console.log("Host Function");
-};
-const joinRoom = () => {
-    console.log("Join Function");
-};
-
 const LandingHeader = (props: LandingHeaderProps) => (
     <div className={styles.landingHeader}>
         <div className={styles.transparentBox}>
