@@ -1,5 +1,5 @@
-.displayBlock{
-    display: block;
+.displayFlex{
+    width: 100vw;
 }
 .displayNone{
     display: none;

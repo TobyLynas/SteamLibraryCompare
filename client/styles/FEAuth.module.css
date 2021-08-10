@@ -1,7 +1,7 @@
 .main{
-    width: 80vw;
     background-color: var(--theme-box-background);
     padding: var(--theme-md);
+    margin: 10em
 }
 .topRow{
     display: flex;

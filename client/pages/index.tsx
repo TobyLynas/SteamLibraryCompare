@@ -5,8 +5,8 @@ import React, { useState } from "react";
 
 const HomePage = () => {
     const [display, setDisplay] = useState(true);
-    const landingContainer = display ? styles.displayBlock : styles.displayNone;
-    const authContainer = display ? styles.displayNone : styles.displayBlock;
+    const landingContainer = display ? styles.displayFlex : styles.displayNone;
+    const authContainer = display ? styles.displayNone : styles.displayFlex;
     return (
         <div >
             <div className={landingContainer}>

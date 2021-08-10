@@ -6,7 +6,6 @@ const FEAuth = () => {
         <div className={styles.main}>
             <div className={styles.topRow}>
                 <Button
-                    className={styles.button}
                     text="Sign in through Steam"
                     onClick={() => console.log("Steam Auth Stuff")}
                 />
@@ -14,7 +13,7 @@ const FEAuth = () => {
                 <div className={styles.profileUrl}>
                     Enter Your Steam profile URL:
                     <input
-                        value="https://steamcommunity.com/profiles/..."
+                        defaultValue="https://steamcommunity.com/profiles/..."
                         className={styles.input}
                     ></input>
                 </div>
