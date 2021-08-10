@@ -1,17 +1,15 @@
-.container{
-    display: flex;
-}
-.box{
+.button{
     background-color: var(--theme-button-background);
-    border: 1px solid var(--theme-border);
+    border: var(--theme-border);
     border-radius: 4pt;
     color: var(--theme-page-text);
     font-size: var(--theme-md);
-    padding: var(--theme-xs) var(--theme-lg);
+    padding: var(--theme-xs);
+    margin: var(--theme-xs);
 }
-.box:active{
+.button:active{
     background-color: var(--theme-button-hover);
 }
-.box:hover{
+.button:hover{
     background-color: var(--theme-button-active);
 }

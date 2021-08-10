@@ -11,7 +11,7 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
     return (
         <div className={styles.container}>
-            <button className={styles.box} onClick={() => props.onClick()}>
+            <button className={styles.button} onClick={() => props.onClick()}>
                 {props.text}
             </button>
         </div>
