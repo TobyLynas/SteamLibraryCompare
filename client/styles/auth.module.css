@@ -1,7 +1,7 @@
 .main {
     background-color: var(--theme-box-background);
     padding: var(--theme-md);
-    margin: var(--theme-md)
+    margin: var(--theme-md);
 }
 .topRow {
     display: flex;
