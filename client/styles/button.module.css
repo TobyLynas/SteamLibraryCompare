@@ -1,6 +1,6 @@
 .button{
     background-color: var(--theme-button-background);
-    border: var(--theme-border);
+    border: var(--theme-border) 1px solid;
     border-radius: 4pt;
     color: var(--theme-page-text);
     font-size: var(--theme-md);

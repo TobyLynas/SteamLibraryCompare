@@ -10,7 +10,7 @@
 }
 .or{
     display: flex;
-    margin: var(--theme-md);
+    margin: var(--theme-sm);
 }
 
 .profileUrl{
@@ -20,9 +20,9 @@
 .input{
     width: 100%;
     background-color: var(--theme-box-background);
-    border: var(--theme-box-accents) 1px solid;
+    border: var(--theme-border) 1px solid;
     border-radius: 5px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--theme-footer-text);
 }
 
 .bottomRow{
