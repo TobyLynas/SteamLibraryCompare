@@ -2,8 +2,8 @@ import styles from "../styles/landingHeader.module.css";
 import Button from "../components/Button";
 
 interface LandingHeaderProps {
-    onClickHost: any;
-    onClickJoin: any;
+    onClickHost: () => void;
+    onClickJoin: () => void;
 }
 const LandingHeader = (props: LandingHeaderProps) => (
     <div className={styles.landingHeader}>
