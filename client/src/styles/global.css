@@ -1,0 +1,65 @@
+:root {
+    /* Default theme */
+    --theme-page-background: #1b2838;
+    --theme-page-text: white;
+    --theme-header-background: #171a21;
+    --theme-header-text: var(--theme-page-text);
+    --theme-footer-background: #2a475e;
+    --theme-footer-text: #c5c5c5;
+    --theme-border: rgba(255, 255, 255, 0.25);
+    --theme-title-text: #66c0f4;
+    --theme-box-background: rgba(42, 71, 94, 0.8);
+    --theme-box-accents: var(--theme-title-text);
+    --theme-button-background: #2f4b67;
+    --theme-button-text: var(--theme-page-text);
+    --theme-button-hover: #224e7a;
+    --theme-button-active: #1898d0;
+
+    /* Sizes for padding, font size, etc */
+    --theme-xs: 0.5em;
+    --theme-sm: 1em;
+    --theme-md: 1.5em;
+    --theme-lg: 2em;
+    --theme-xlg: 4em;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: var(--theme-page-text);
+    font-family: "Inter", sans-serif;
+    margin: 0;
+}
+
+@supports (font-variation-settings: normal) {
+    body {
+        font-family: "Inter var", sans-serif;
+    }
+}
+
+a {
+    text-decoration: initial;
+    color: currentColor;
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    margin: initial;
+}
+
+/* React root */
+#root {
+    height: 100%;
+}

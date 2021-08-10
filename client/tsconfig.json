@@ -7,18 +7,15 @@
       "dom.iterable",
       "esnext"
     ],
+    "allowJs": false,
     "skipLibCheck": true,
-    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "jsx": "preserve",
-    "allowJs": false
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
+    "src"
   ]
 }
