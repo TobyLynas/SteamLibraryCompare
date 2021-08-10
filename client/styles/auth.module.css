@@ -1,23 +1,23 @@
-.main{
+.main {
     background-color: var(--theme-box-background);
     padding: var(--theme-md);
     margin: var(--theme-md)
 }
-.topRow{
+.topRow {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.or{
+.or {
     display: flex;
     margin: var(--theme-sm);
 }
 
-.profileUrl{
+.profileUrl {
     margin: var(--theme-md);
 }
 
-.input{
+.input {
     width: 100%;
     background-color: var(--theme-box-background);
     border: var(--theme-border) 1px solid;
@@ -25,7 +25,7 @@
     color: var(--theme-footer-text);
 }
 
-.bottomRow{
+.bottomRow {
     padding: var(--theme-md);
     color: var(--theme-footer-text)
 }

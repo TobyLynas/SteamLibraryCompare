@@ -1,4 +1,4 @@
-.button{
+.button {
     background-color: var(--theme-button-background);
     border: var(--theme-border) 1px solid;
     border-radius: 4pt;
@@ -7,9 +7,9 @@
     padding: var(--theme-xs);
     margin: var(--theme-xs);
 }
-.button:active{
+.button:active {
     background-color: var(--theme-button-hover);
 }
-.button:hover{
+.button:hover {
     background-color: var(--theme-button-active);
 }
