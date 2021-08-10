@@ -1,6 +1,6 @@
 import styles from "../styles/index.module.css";
 import LandingHeader from "../components/LandingHeader";
-import FEAuth from "../components/FEAuth";
+import Auth from "../components/Auth";
 import React, { useState } from "react";
 
 const HomePage = () => {
@@ -15,7 +15,7 @@ const HomePage = () => {
                 onClickJoin={()=>console.log("some Join Stuff")}/>
             </div>
             <div className={authContainer}>
-                <FEAuth />
+                <Auth />
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
-import styles from "../styles/FEAuth.module.css";
-import Button from "../components/Button";
+import styles from "../styles/auth.module.css";
+import Button from "./Button";
 
-const FEAuth = () => {
+const Auth = () => {
     return (
         <div className={styles.main}>
             <div className={styles.topRow}>
@@ -26,4 +26,4 @@ const FEAuth = () => {
     );
 };
 
-export default FEAuth;
+export default Auth;
