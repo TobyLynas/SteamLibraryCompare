@@ -1,0 +1,31 @@
+.main {
+    background-color: var(--theme-box-background);
+    padding: var(--theme-md);
+    margin: var(--theme-md);
+}
+.topRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.or {
+    display: flex;
+    margin: var(--theme-sm);
+}
+
+.profileUrl {
+    margin: var(--theme-md);
+}
+
+.input {
+    width: 100%;
+    background-color: var(--theme-box-background);
+    border: var(--theme-border) 1px solid;
+    border-radius: 5px;
+    color: var(--theme-footer-text);
+}
+
+.bottomRow {
+    padding: var(--theme-md);
+    color: var(--theme-footer-text)
+}
