@@ -1,0 +1,31 @@
+.main{
+    width: 80vw;
+    background-color: var(--theme-box-background);
+    padding: var(--theme-md);
+}
+.topRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.or{
+    display: flex;
+    margin: var(--theme-md);
+}
+
+.profileUrl{
+    margin: var(--theme-md);
+}
+
+.input{
+    width: 100%;
+    background-color: var(--theme-box-background);
+    border: var(--theme-box-accents) 1px solid;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.bottomRow{
+    padding: var(--theme-md);
+    color: var(--theme-footer-text)
+}
