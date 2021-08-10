@@ -19,7 +19,7 @@ const Auth = () => {
                 </div>
             </div>
             <div className={styles.bottomRow}>
-                Please ensure your <b>game details is set to <i >public</i></b> so we can fetch
+                Please ensure your <strong> game details is set to <em> public </em></strong> so we can fetch
                 your game library.
             </div>
         </div>
