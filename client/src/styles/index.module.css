@@ -1,12 +1,13 @@
 .landingHeader {
     display: flex;
-    background-image: url("public/landing-back-img.png");
+    background-image: url("../assets/landing-back-img.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+    flex: 1;
 }
 .transparentBox {
     display: flex;
@@ -28,13 +29,12 @@
 
 .highlightBox {
     background-color: var(--theme-box-background);
-    padding: var(--theme-md)
+    padding: var(--theme-md);
 }
 .gettingStarted {
     border-bottom: var(--theme-box-accents) 1px solid;
     font-size: var(--theme-md);
     margin-bottom: var(--theme-sm);
-
 }
 .alignmentBox {
     display: flex;

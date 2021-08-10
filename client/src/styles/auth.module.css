@@ -27,5 +27,5 @@
 
 .bottomRow {
     padding: var(--theme-md);
-    color: var(--theme-footer-text)
+    color: var(--theme-footer-text);
 }

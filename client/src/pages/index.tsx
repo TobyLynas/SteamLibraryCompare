@@ -1,11 +1,9 @@
-import styles from "../styles/LandingHeader.module.css";
-import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
-interface LandingHeaderProps {
-    onClickHost: () => void;
-    onClickJoin: () => void;
-}
-const LandingHeader = (props: LandingHeaderProps) => (
+import Button from "../components/Button";
+import styles from "../styles/index.module.css";
+
+const Index = () => (
     <div className={styles.landingHeader}>
         <div className={styles.transparentBox}>
             <h1 className={styles.grandText}>What is this?</h1>
@@ -14,12 +12,14 @@ const LandingHeader = (props: LandingHeaderProps) => (
             <div className={styles.highlightBox}>
                 <h2 className={styles.gettingStarted}>Getting started</h2>
                 <div className={styles.alignmentBox}>
-                    <Button text="Host Room" onClick={props.onClickHost} />
-                    <Button text="Join Room" onClick={props.onClickJoin} />
+                    <Link to="/auth">
+                        <Button text="Host Room" />
+                    </Link>
+                    <Button text="Join Room" />
                 </div>
             </div>
         </div>
     </div>
 );
 
-export default LandingHeader;
+export default Index;

@@ -1,19 +1,26 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import "./styles/global.css";
-import styles from "./styles/App.module.css";
-
-import LandingHeader from "./components/LandingHeader";
 import PageLayout from "./components/PageLayout";
 
-function App() {
-    return (
+import Index from "./pages/index";
+import Auth from "./pages/auth";
+
+import "./styles/global.css";
+
+const App = () => (
+    <Router>
         <PageLayout>
-            <div className={styles.headerContainer}>
-                <LandingHeader />
-            </div>
+            <Switch>
+                <Route exact path="/">
+                    <Index />
+                </Route>
+                <Route path="/auth">
+                    <Auth />
+                </Route>
+            </Switch>
         </PageLayout>
-    );
-}
+    </Router>
+);
 
 export default App;

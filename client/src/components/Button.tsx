@@ -1,17 +1,15 @@
-/* Reusable button component, use the text props to set the text for the button
-and the runFunction prop should be a function with what the button should do*/
-
+import React from "react";
 import styles from "../styles/Button.module.css";
 
 interface ButtonProps {
     text: string;
-    onClick: any;
+    onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = (props: ButtonProps) => {
     return (
         <div className={styles.container}>
-            <button className={styles.button} onClick={() => props.onClick()}>
+            <button className={styles.button} onClick={props.onClick}>
                 {props.text}
             </button>
         </div>

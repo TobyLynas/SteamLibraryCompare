@@ -13,7 +13,7 @@
     --theme-button-background: #2f4b67;
     --theme-button-text: var(--theme-page-text);
     --theme-button-hover: #224e7a;
-    --theme-button-active: #1898D0;
+    --theme-button-active: #1898d0;
 
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;
@@ -21,6 +21,11 @@
     --theme-md: 1.5em;
     --theme-lg: 2em;
     --theme-xlg: 4em;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
@@ -35,11 +40,26 @@ body {
     }
 }
 
+a {
+    text-decoration: initial;
+    color: currentColor;
+}
+
 p {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
     margin: initial;
+}
+
+/* React root */
+#root {
+    height: 100%;
 }
