@@ -5,23 +5,48 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding-top: var(--theme-sm)
+    padding-top: var(--theme-sm);
 }
 
 .chevron {
     height: var(--theme-md);
     color: var(--theme-title-text);
+    transition: 0.25s;
+}
+
+.chevronRotate{
+    transform: rotate(180deg);
+    height: var(--theme-md);
+    transition: 0.25s;
+}
+
+.chevron:hover {
+    transform: scale(1.2);
+    transition: 0.1s;
+}
+
+.chevronRotate:hover {
+    transform: rotate(180deg) scale(1.2);
+    transition: 0.1s;
 }
 
 .contentContainer {
     color: var(--theme-page-text);
     width: 80%;
     font-size: 18px;
-    margin-bottom: var(--theme-md);
+    transition: max-height 0.25s ease;
+    max-height: 100%
 }
 
+.contentContainerHide{
+    color: var(--theme-page-text);
+    width: 80%;
+    font-size: 18px;
+    transition: max-height 0.25s ease;
+    max-height: 0px;
+}
 .header {
-    padding: var(--theme-sm) 0 var(--theme-xs);
+
 }
 strong {
     font-size: 24px;
