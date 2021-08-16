@@ -1,3 +1,8 @@
+.pageContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .landingHeader {
     display: flex;
     background-image: url("../assets/landing-back-img.png");

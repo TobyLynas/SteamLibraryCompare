@@ -1,0 +1,29 @@
+.FAQBox {
+    color: var(--theme-title-text);
+    font-size: var(--theme-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--theme-sm)
+}
+
+.chevron {
+    height: var(--theme-md);
+    color: var(--theme-title-text);
+}
+
+.contentContainer {
+    color: var(--theme-page-text);
+    width: 80%;
+    font-size: 18px;
+    margin-bottom: var(--theme-md);
+}
+
+.header {
+    padding: var(--theme-sm) 0 var(--theme-xs);
+}
+strong {
+    font-size: 24px;
+    border-bottom: solid 1px var(--theme-title-text);
+}
