@@ -1,0 +1,32 @@
+.checkboxContainer {
+    align-items: center;
+    display: inline-flex;
+    font-family: var(--theme-base-font-family);
+    font-size: var(--theme-base-font-size);
+    user-select: none;
+}
+
+.checkbox {
+    align-items: center;
+    appearance: none;
+    background-color: var(--theme-button-background);
+    border: 1px solid var(--theme-border);
+    border-radius: 0.2rem;
+    display: flex;
+    font-size: inherit;
+    height: 2rem;
+    justify-content: center;
+    margin: initial;
+    margin-right: 0.5em;
+    position: relative;
+    width: 2rem;
+}
+
+.checkbox:checked::after {
+    background-color: currentColor;
+    content: "";
+    height: 1.2rem;
+    opacity: 0.75;
+    position: absolute;
+    width: 1.2rem;
+}
