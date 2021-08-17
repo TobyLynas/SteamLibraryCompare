@@ -10,10 +10,12 @@
     --theme-title-text: #66c0f4;
     --theme-box-background: rgba(42, 71, 94, 0.8);
     --theme-box-accents: var(--theme-title-text);
+
+    /* Button */
     --theme-button-background: #2f4b67;
+    --theme-button-background-hover: #224e7a;
+    --theme-button-background-active: #1898d0;
     --theme-button-text: var(--theme-page-text);
-    --theme-button-hover: #224e7a;
-    --theme-button-active: #1898d0;
 
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;
@@ -21,6 +23,14 @@
     --theme-md: 1.5em;
     --theme-lg: 2em;
     --theme-xlg: 4em;
+
+    /* Base font size */
+    font-size: 10px;
+    --theme-base-font-size: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 html,
@@ -31,6 +41,7 @@ body {
 body {
     color: var(--theme-page-text);
     font-family: "Inter", sans-serif;
+    font-size: var(--theme-base-font-size);
     margin: 0;
 }
 
