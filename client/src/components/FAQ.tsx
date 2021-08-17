@@ -14,7 +14,6 @@ const FAQ = () => {
                 className={FAQState?styles.chevronRotate:styles.chevron}
                 onClick={() => setState(!FAQState)}
             />
-            {/* // <div className={styles.contentContainer}> */}
             <div
                 className={
                     FAQState
@@ -22,17 +21,17 @@ const FAQ = () => {
                         : styles.contentContainerHide
                 }
             >
-                <div className={styles.header}>
+                <p className={styles.header}>
                     <strong>
                         Why do I need to sign into my Steam Account?
                     </strong>
-                </div>
+                </p>
                 If you prefer to not sign in, you can alternatively enter your
                 steam profile URL. We need your Steam ID in order to view your
                 game library and
-                <div className={styles.header}>
+                <p className={styles.header}>
                     <strong>Where can I send suggestions?</strong>
-                </div>
+                </p>
                 Somewhere else bro
             </div>
         </div>
