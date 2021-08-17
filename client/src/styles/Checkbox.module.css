@@ -14,19 +14,19 @@
     border-radius: 0.2rem;
     display: flex;
     font-size: inherit;
-    height: 20px;
+    height: 2rem;
     justify-content: center;
     margin: initial;
     margin-right: 0.5em;
     position: relative;
-    width: 20px;
+    width: 2rem;
 }
 
 .checkbox:checked::after {
     background-color: currentColor;
     content: "";
-    height: 12px;
+    height: 1.2rem;
     opacity: 0.75;
     position: absolute;
-    width: 12px;
+    width: 1.2rem;
 }
