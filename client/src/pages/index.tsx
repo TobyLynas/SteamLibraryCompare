@@ -13,9 +13,9 @@ const Index = () => (
                 <h2 className={styles.gettingStarted}>Getting started</h2>
                 <div className={styles.alignmentBox}>
                     <Link to="/auth">
-                        <Button text="Host Room" />
+                        <Button text="Host Room" variant="large" />
                     </Link>
-                    <Button text="Join Room" />
+                    <Button text="Join Room" variant="large" />
                 </div>
             </div>
         </div>
