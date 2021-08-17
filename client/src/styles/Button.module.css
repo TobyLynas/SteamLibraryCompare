@@ -1,4 +1,5 @@
 .button {
+    align-self: start;
     background-color: var(--theme-button-background);
     border-radius: 0.4rem;
     border: var(--theme-border) 1px solid;
@@ -13,4 +14,13 @@
 }
 .button:active {
     background-color: var(--theme-button-background-active);
+}
+
+.small {
+    composes: button;
+    font-size: 1rem;
+}
+.large {
+    composes: button;
+    font-size: 2rem;
 }
