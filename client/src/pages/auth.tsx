@@ -6,6 +6,7 @@ const Auth = () => (
         <div className={styles.topRow}>
             <Button
                 text="Sign in through Steam"
+                variant="large"
                 onClick={() => console.log("Steam Auth Stuff")}
             />
             <div className={styles.or}>or</div>
