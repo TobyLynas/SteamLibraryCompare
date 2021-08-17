@@ -1,6 +1,5 @@
-node_modules/
-
 # misc
 .DS_Store
 npm-debug.log*
 .env
+/api/node_modules

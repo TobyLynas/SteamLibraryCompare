@@ -1,0 +1,44 @@
+.FAQBox {
+    color: var(--theme-title-text);
+    font-size: var(--theme-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--theme-header-background);
+    padding: var(--theme-md);
+}
+
+.chevron {
+    height: var(--theme-md);
+    color: var(--theme-title-text);
+    transition: 0.5s;
+}
+
+.chevronRotate {
+    transform: rotate(180deg);
+    height: var(--theme-md);
+    transition: 0.5s;
+}
+
+.contentContainer {
+    color: var(--theme-page-text);
+    width: 80%;
+    font-size: 18px;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.contentContainerHide {
+    color: var(--theme-page-text);
+    width: 80%;
+    font-size: 18px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.header {
+    border-bottom: solid 1px var(--theme-title-text);
+    font-weight: bold;
+}
