@@ -14,7 +14,7 @@
     transition: 0.5s;
 }
 
-.chevronRotate{
+.chevronRotate {
     transform: rotate(180deg);
     height: var(--theme-md);
     transition: 0.5s;
@@ -28,7 +28,7 @@
     max-height: 100%
 }
 
-.contentContainerHide{
+.contentContainerHide {
     color: var(--theme-page-text);
     width: 80%;
     font-size: 18px;
