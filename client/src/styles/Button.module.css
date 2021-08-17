@@ -4,7 +4,7 @@
     border-radius: 0.4rem;
     border: var(--theme-border) 1px solid;
     color: var(--theme-page-text);
-    font-family: inherit;
+    font-family: var(--theme-base-font-family);
     font-size: var(--theme-base-font-size);
     padding: 0.5em 1em;
 }

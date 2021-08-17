@@ -26,6 +26,7 @@
 
     /* Base font size */
     font-size: 10px;
+    --theme-base-font-family: "Inter", sans-serif;
     --theme-base-font-size: 1.5rem;
 }
 
@@ -40,14 +41,14 @@ body {
 
 body {
     color: var(--theme-page-text);
-    font-family: "Inter", sans-serif;
+    font-family: var(--theme-base-font-family);
     font-size: var(--theme-base-font-size);
     margin: 0;
 }
 
 @supports (font-variation-settings: normal) {
-    body {
-        font-family: "Inter var", sans-serif;
+    :root {
+        --theme-base-font-family: "Inter var", sans-serif;
     }
 }
 
