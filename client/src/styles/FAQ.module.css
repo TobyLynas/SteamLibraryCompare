@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--theme-header-background);
+    padding: var(--theme-md);
 }
 
 .chevron {
