@@ -24,18 +24,19 @@
     font-size: 18px;
     transform: scaleY(1);
     transform-origin: top;
-    transition:transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .contentContainerHide {
     color: var(--theme-page-text);
     width: 80%;
     font-size: 18px;
-    transform: scaleY(0) ;
+    transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.3s ease;
 }
+
 .header {
-    font-size: 24px;
     border-bottom: solid 1px var(--theme-title-text);
+    font-weight: bold;
 }

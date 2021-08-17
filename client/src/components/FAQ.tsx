@@ -3,7 +3,7 @@ import chevron from "../assets/chevron-down.svg";
 
 import React, { useState } from "react";
 
-const FAQ = () => {
+const FAQList = () => {
     const [FAQState, setState] = useState(false);
     return (
         <div className={styles.FAQBox}>
@@ -11,7 +11,7 @@ const FAQ = () => {
             <img
                 src={chevron}
                 alt="Downwards Chevron"
-                className={FAQState?styles.chevronRotate:styles.chevron}
+                className={FAQState ? styles.chevronRotate : styles.chevron}
                 onClick={() => setState(!FAQState)}
             />
             <div
@@ -20,22 +20,23 @@ const FAQ = () => {
                         ? styles.contentContainer
                         : styles.contentContainerHide
                 }
-            >
-                <p className={styles.header}>
-                    <strong>
-                        Why do I need to sign into my Steam Account?
-                    </strong>
-                </p>
-                If you prefer to not sign in, you can alternatively enter your
-                steam profile URL. We need your Steam ID in order to view your
-                game library and
-                <p className={styles.header}>
-                    <strong>Where can I send suggestions?</strong>
-                </p>
-                Somewhere else bro
+            >   
+                <FAQItem heading="Title Heading"  entry="This is where a string goes"/>
+                <FAQItem heading="A second title" entry="what do you want to out here guys?" />
             </div>
         </div>
     );
 };
 
-export default FAQ;
+const FAQItem = ( props : { heading: string; entry: string; }) => {
+    return (
+        <p>
+            <h2 className={styles.header}>
+                {props.heading}
+            </h2>
+                {props.entry}
+        </p>
+    );
+};
+
+export default FAQList;
