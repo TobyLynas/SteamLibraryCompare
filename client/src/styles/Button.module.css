@@ -9,11 +9,15 @@
     height: 3.6rem;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
     background-color: var(--theme-button-background-hover);
 }
-.button:active {
+.button:active:not(:disabled) {
     background-color: var(--theme-button-background-active);
+}
+
+.button:disabled {
+    opacity: 0.75;
 }
 
 .small {
