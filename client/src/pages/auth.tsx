@@ -5,16 +5,10 @@ import type { User } from "../UserContext";
 import Button from "../components/Button";
 import styles from "../styles/auth.module.css";
 
-const AUTH_ORIGIN = "http://localhost:9000";
-interface AuthMessage {
-    token: string;
-}
-
 interface AuthProps {
     onAuthSuccess: (user: User) => void;
     onAuthFailed: () => void;
 }
-
 interface AuthState {
     isAuthenticated: boolean;
     popup?: Window;
@@ -49,7 +43,7 @@ export default class Auth extends Component<AuthProps, AuthState> {
         }
 
         const popup = window.open(
-            `${AUTH_ORIGIN}/auth/steam`,
+            `${process.env.REACT_APP_API_URL}/auth/steam`,
             undefined,
             "width=600, height=700"
         );
@@ -62,13 +56,13 @@ export default class Auth extends Component<AuthProps, AuthState> {
         popup.focus();
     }
 
-    private onAuthMessage(ev: MessageEvent<AuthMessage>) {
+    private onAuthMessage(ev: MessageEvent<{ token: string }>) {
         // Invalid state
         if (this.state.isAuthenticated || !this.state.popup) {
             return;
         }
         // Only trust messages from the popup (hosted on the server)
-        if (ev.origin !== AUTH_ORIGIN) {
+        if (ev.origin !== process.env.REACT_APP_API_URL) {
             return;
         }
 
