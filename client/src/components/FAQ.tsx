@@ -30,12 +30,12 @@ const FAQList = () => {
 
 const FAQItem = ( props : { heading: string; entry: string; }) => {
     return (
-        <p>
+        <div>
             <h2 className={styles.header}>
                 {props.heading}
             </h2>
                 {props.entry}
-        </p>
+        </div>
     );
 };
 
