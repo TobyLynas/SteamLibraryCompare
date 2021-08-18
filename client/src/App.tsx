@@ -5,6 +5,7 @@ import PageLayout from "./components/PageLayout";
 
 import Index from "./pages/index";
 import Auth from "./pages/auth";
+import HostSetup from "./pages/hostSetup";
 
 import "./styles/global.css";
 
@@ -17,6 +18,9 @@ const App = () => (
                 </Route>
                 <Route path="/auth">
                     <Auth />
+                </Route>
+                <Route path="/host" >
+                    <HostSetup />
                 </Route>
             </Switch>
         </PageLayout>
