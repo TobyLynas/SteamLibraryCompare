@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import jwt from "jsonwebtoken";
 
 import type { User } from "../UserContext";
 
@@ -66,13 +67,16 @@ export default class Auth extends Component<AuthProps, AuthState> {
             return;
         }
 
+        const tokenPayload = jwt.decode(ev.data.token) as { steamId?: string };
+
         this.setState({
             isAuthenticated: true,
             popup: undefined
         });
         this.props.onAuthSuccess({
             user: {
-                token: ev.data.token
+                token: ev.data.token,
+                steamId: tokenPayload.steamId
             }
         });
     }

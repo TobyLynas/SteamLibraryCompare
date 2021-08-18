@@ -12,10 +12,12 @@ import ISteamUser from "./ISteamUser";
  *   matching API routes: https://partner.steamgames.com/doc/webapi/
  */
 export default class SteamworksWebAPI {
-    constructor(apiKey: string) {
+    constructor(token: string) {
         const config: AxiosRequestConfig = {
-            baseURL: "https://api.steampowered.com/",
-            params: { key: apiKey }
+            baseURL: `${process.env.REACT_APP_API_URL}/proxy/steamworks/`,
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
         };
 
         this.IPlayerService = new IPlayerService(config);
