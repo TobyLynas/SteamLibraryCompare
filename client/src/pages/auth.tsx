@@ -6,6 +6,10 @@ import type { User } from "../UserContext";
 import Button from "../components/Button";
 import styles from "../styles/auth.module.css";
 
+interface TokenPayload {
+    steamId?: string;
+}
+
 interface AuthProps {
     onAuthSuccess: (user: User) => void;
     onAuthFailed: () => void;
@@ -16,7 +20,7 @@ interface AuthState {
 }
 
 /**
- * Handles authentication flow, passing user token back to parent component.
+ * Handles user authentication flow.
  */
 export default class Auth extends Component<AuthProps, AuthState> {
     state: AuthState = {
@@ -31,9 +35,15 @@ export default class Auth extends Component<AuthProps, AuthState> {
     }
 
     /**
-     * Open a popup window at the server auth endpoint.
+     * Open a popup window at the server auth endpoint. That page is redirected
+     * to Steam's OpenID authentication page, and then back to a return page at
+     * our server.
+     *
+     * The auth token is embedded in a script that sends a cross-window message
+     * back to the client app.
      */
     private beginAuth() {
+        // Already authenticated
         if (this.state.isAuthenticated) {
             return;
         }
@@ -57,9 +67,15 @@ export default class Auth extends Component<AuthProps, AuthState> {
         popup.focus();
     }
 
+    /**
+     * Handles token messages from the popup window. Message origin is checked
+     * against the server origin to ensure validity.
+     *
+     * @param ev Message event
+     */
     private onAuthMessage(ev: MessageEvent<{ token: string }>) {
         // Invalid state
-        if (this.state.isAuthenticated || !this.state.popup) {
+        if (this.state.isAuthenticated) {
             return;
         }
         // Only trust messages from the popup (hosted on the server)
@@ -67,12 +83,21 @@ export default class Auth extends Component<AuthProps, AuthState> {
             return;
         }
 
-        const tokenPayload = jwt.decode(ev.data.token) as { steamId?: string };
+        const tokenPayload = jwt.decode(ev.data.token) as TokenPayload;
+        if (!tokenPayload.steamId) {
+            this.props.onAuthFailed();
+            return;
+        }
+
+        // Ensure closed just in case
+        this.state.popup?.close();
 
         this.setState({
             isAuthenticated: true,
             popup: undefined
         });
+
+        // Pass user details
         this.props.onAuthSuccess({
             user: {
                 token: ev.data.token,

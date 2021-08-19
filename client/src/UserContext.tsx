@@ -3,7 +3,7 @@ import React from "react";
 export interface User {
     user?: {
         token: string;
-        steamId?: string;
+        steamId: string;
     };
 }
 
