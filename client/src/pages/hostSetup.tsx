@@ -1,4 +1,5 @@
 import styles from "../styles/hostSetup.module.css";
+import passwordStyle from "../styles/Textbox.module.css"
 import Textbox from "../components/Textbox";
 import Checkbox from "../components/Checkbox";
 import Button from "../components/Button";
@@ -13,7 +14,7 @@ const hostSetup = () => {
                     <div className={styles.padding}>
                     <Checkbox text="Enable Authentication" />
                     </div>
-                    <Textbox placeholder="Password"/>
+                    <input className={passwordStyle.main} type="password" />
                 </div>
                 <Button text="Create Room" variant="large" />
             </div>
