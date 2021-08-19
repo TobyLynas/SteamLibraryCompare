@@ -1,10 +1,10 @@
 import styles from "../styles/Textbox.module.css";
 
-interface TexboxProps {
+interface TextboxProps {
     placeholder: string;
 }
 
-const Textbox = (props: TexboxProps) => {
+const Textbox = (props: TextboxProps) => {
     return (
         <textarea className={styles.main} placeholder={props.placeholder}>
 
