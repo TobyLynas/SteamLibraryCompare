@@ -6,7 +6,7 @@
     border-bottom: var(--theme-title-text) solid 1px;
     margin-bottom: var(--theme-md);
     padding-bottom: var(--theme-xs);
-    font-size: 18pt
+    font-size: 18px;
 }
 .grid {
     display: grid;
@@ -14,8 +14,8 @@
     gap: var(--theme-sm) var(--theme-md);
     align-items: end;
 }
-.padding {
-    padding-bottom: var(--theme-xs);
+.authSpacing {
+    margin-bottom: var(--theme-xs);
 }
 .enableAuth {
     border: 1px solid var(--theme-border);
