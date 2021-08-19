@@ -10,11 +10,18 @@
 * `npm run build`  
   Builds the project.
 
+### API scripts
+
 * `npm run start`  
   Runs the project in production mode. Compile with `npm run build` script first.
 
 * `npm run lint`  
   Runs eslint.
+
+### Client scripts
+
+* `npm run test`  
+  Runs tests.
 
 
 ## API:
@@ -53,3 +60,5 @@ Make a Steamworks Web API request via the API server. The Steam API key param is
 
 ## Client:
 To run the React client, enter the `client/` directory and run `npm run dev`. The client server will then run on [http://localhost:3000](http://localhost:3000).
+
+Requires environent variables to be configured (see [api/.env.example](./client/.env.example)).
