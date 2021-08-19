@@ -16,7 +16,6 @@ interface AuthProps {
 }
 interface AuthState {
     isAuthenticated: boolean;
-    popup?: Window;
 }
 
 /**
@@ -26,6 +25,8 @@ export default class Auth extends Component<AuthProps, AuthState> {
     state: AuthState = {
         isAuthenticated: false
     };
+
+    popup: Window | null = null;
 
     constructor(props: AuthProps) {
         super(props);
@@ -44,27 +45,25 @@ export default class Auth extends Component<AuthProps, AuthState> {
      */
     private beginAuth() {
         // Already authenticated
-        if (this.state.isAuthenticated) {
-            return;
-        }
+        if (this.state.isAuthenticated) return;
 
         // Ensure only one popup
-        if (this.state.popup) {
-            this.state.popup.close();
+        if (this.popup) {
+            this.popup.close();
         }
 
-        const popup = window.open(
-            `${process.env.REACT_APP_API_URL}/auth/steam`,
-            undefined,
-            "width=600, height=700"
-        );
-        if (!popup) {
+        if (
+            !(this.popup = window.open(
+                `${process.env.REACT_APP_API_URL}/auth/steam`,
+                undefined,
+                "width=600, height=700"
+            ))
+        ) {
             this.props.onAuthFailed();
             return;
         }
 
-        this.setState({ popup });
-        popup.focus();
+        this.popup.focus();
     }
 
     /**
@@ -75,13 +74,9 @@ export default class Auth extends Component<AuthProps, AuthState> {
      */
     private onAuthMessage(ev: MessageEvent<{ token: string }>) {
         // Invalid state
-        if (this.state.isAuthenticated) {
-            return;
-        }
+        if (this.state.isAuthenticated) return;
         // Only trust messages from the popup (hosted on the server)
-        if (ev.origin !== process.env.REACT_APP_API_URL) {
-            return;
-        }
+        if (ev.origin !== process.env.REACT_APP_API_URL) return;
 
         const tokenPayload = jwt.decode(ev.data.token) as TokenPayload;
         if (!tokenPayload.steamId) {
@@ -90,11 +85,11 @@ export default class Auth extends Component<AuthProps, AuthState> {
         }
 
         // Ensure closed just in case
-        this.state.popup?.close();
+        this.popup?.close();
+        this.popup = null;
 
         this.setState({
-            isAuthenticated: true,
-            popup: undefined
+            isAuthenticated: true
         });
 
         // Pass user details
@@ -111,6 +106,10 @@ export default class Auth extends Component<AuthProps, AuthState> {
     }
     componentWillUnmount() {
         window.removeEventListener("message", this.onAuthMessage);
+
+        if (this.popup) {
+            this.popup.close();
+        }
     }
 
     render() {
