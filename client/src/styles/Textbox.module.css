@@ -2,8 +2,6 @@
     background-color: var(--theme-textbox-background);
     border: 1px solid var(--theme-border);
     color: var(--theme-textbox-text);
-    height: 22px;
     border-radius: 0.5rem;
     outline: none;
-    resize: none;
 }

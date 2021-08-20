@@ -6,9 +6,7 @@ interface TextboxProps {
 
 const Textbox = (props: TextboxProps) => {
     return (
-        <textarea className={styles.main} placeholder={props.placeholder}>
-
-        </textarea>
+        <input className={styles.main} placeholder={props.placeholder} />
     );
 };
 
