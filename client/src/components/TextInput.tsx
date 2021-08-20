@@ -7,10 +7,10 @@ interface TextInputProps {
 
 const TextInput = (props: TextInputProps) => {
     return (
-        <input 
-        className={styles.main} 
-        placeholder={props.placeholder} 
-        type={props.isPassword?"password":"text"}
+        <input
+            className={styles.main}
+            placeholder={props.placeholder}
+            type={props.isPassword ? "password" : "text"}
         />
     );
 };
