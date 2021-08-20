@@ -1,7 +1,9 @@
+import TextInput from "../components/widgets/TextInput";
+import Checkbox from "../components/widgets/Checkbox";
+import Button from "../components/widgets/Button";
+
 import styles from "../styles/hostSetup.module.css";
-import TextInput from "../components/TextInput";
-import Checkbox from "../components/Checkbox";
-import Button from "../components/Button";
+
 const hostSetup = () => {
     return (
         <div className={styles.main}>

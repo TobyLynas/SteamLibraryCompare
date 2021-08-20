@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import UserContext from "../UserContext";
 
-import Button from "../components/Button";
+import Button from "../components/widgets/Button";
 import FAQ from "../components/FAQ";
 
 import styles from "../styles/index.module.css";
