@@ -15,8 +15,8 @@ export { User };
  * Main Steam API wrapper class.
  *
  * @remarks
- *   Provides access to various Steam-related API functionality. Requires a valid
- *   Steam Web API key.
+ *   Provides access to various Steam-related API functionality. Requires a
+ *   valid API auth token.
  */
 export default class Steam {
     private api: SteamworksWebAPI;
@@ -24,10 +24,10 @@ export default class Steam {
     /**
      * Create a new API class instance.
      *
-     * @param apiKey - Steamworks Web API key
+     * @param token - API auth token.
      */
-    constructor(apiKey: string) {
-        this.api = new SteamworksWebAPI(apiKey);
+    constructor(token: string) {
+        this.api = new SteamworksWebAPI(token);
     }
 
     /**
