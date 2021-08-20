@@ -16,6 +16,10 @@
     --theme-button-background-hover: #224e7a;
     --theme-button-background-active: #1898d0;
     --theme-button-text: var(--theme-page-text);
+    
+    /* Textbox */
+    --theme-textbox-background: #2f4b67;
+    --theme-textbox-text: var(--theme-page-text);
 
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;

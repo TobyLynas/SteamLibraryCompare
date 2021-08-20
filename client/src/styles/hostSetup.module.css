@@ -1,0 +1,26 @@
+.main {
+    background-color: var(--theme-box-background);
+    padding: var(--theme-md);
+}
+.title {
+    border-bottom: var(--theme-title-text) solid 1px;
+    margin-bottom: var(--theme-md);
+    padding-bottom: var(--theme-xs);
+    font-size: 18px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--theme-sm) var(--theme-md);
+    align-items: end;
+}
+.authSpacing {
+    margin-bottom: var(--theme-xs);
+}
+.enableAuth {
+    border: 1px solid var(--theme-border);
+    border-radius: 0.5rem;
+    padding: var(--theme-xs);
+    display: flex;
+    flex-direction: column;
+}

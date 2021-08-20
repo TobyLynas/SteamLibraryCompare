@@ -5,11 +5,12 @@ interface CheckboxProps {
     text: string;
     isChecked?: boolean;
     onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+    styling?: React.CSSProperties;
 }
 
 const Checkbox = (props: CheckboxProps) => {
     return (
-        <label className={styles.checkboxContainer}>
+        <label className={styles.checkboxContainer} style={props.styling}>
             <input
                 type="checkbox"
                 checked={props.isChecked}
