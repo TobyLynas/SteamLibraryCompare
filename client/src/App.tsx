@@ -16,28 +16,6 @@ const App = () => {
     const [user, setUser] = useState<User>();
 
     return (
-<<<<<<< HEAD
-        <Router>
-            <UserContext.Provider value={user ?? {}}>
-                <PageLayout>
-                    <Switch>
-                        <Route exact path="/">
-                            <Index />
-                        </Route>
-                        <Route path="/auth">
-                            <Auth
-                                onAuthSuccess={setUser}
-                                onAuthFailed={() => {}}
-                            />
-                        </Route>
-		                <Route path="/host" >
-		                    <HostSetup />
-		                </Route>
-                    </Switch>
-                </PageLayout>
-            </UserContext.Provider>
-        </Router>
-=======
         <UserContext.Provider value={user ?? {}}>
             <PageLayout>
                 <Switch>
@@ -54,10 +32,12 @@ const App = () => {
                             onAuthFailed={() => {}}
                         />
                     </Route>
+                    <Route path="/host">
+                        <HostSetup />
+                    </Route>
                 </Switch>
             </PageLayout>
         </UserContext.Provider>
->>>>>>> 4343985 (Show placeholder info for authenticated in users)
     );
 };
 
