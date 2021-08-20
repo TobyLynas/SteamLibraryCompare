@@ -10,14 +10,14 @@ import styles from "../styles/index.module.css";
 
 const Index = () => {
     const user = useContext(UserContext);
-    if (user.user) {
+    if (user) {
         // TODO: Figure out what to put here
         return (
             <div>
                 Logged in with Steam ID:
                 <br />
                 <span style={{ fontSize: "1.5em", fontWeight: "bold" }}>
-                    {user.user?.steamId}
+                    {user.steamId}
                 </span>
             </div>
         );

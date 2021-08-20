@@ -1,10 +1,8 @@
 import React from "react";
 
 export interface User {
-    user?: {
-        token: string;
-        steamId: string;
-    };
+    token: string;
+    steamId: string;
 }
 
-export default React.createContext<User>({});
+export default React.createContext<User | undefined>(undefined);

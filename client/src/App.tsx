@@ -16,7 +16,7 @@ const App = () => {
     const [user, setUser] = useState<User>();
 
     return (
-        <UserContext.Provider value={user ?? {}}>
+        <UserContext.Provider value={user}>
             <PageLayout>
                 <Switch>
                     <Route exact path="/">

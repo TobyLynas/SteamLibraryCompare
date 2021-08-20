@@ -94,10 +94,8 @@ export default class Auth extends Component<AuthProps, AuthState> {
 
         // Pass user details
         this.props.onAuthSuccess({
-            user: {
-                token: ev.data.token,
-                steamId: tokenPayload.steamId
-            }
+            token: ev.data.token,
+            steamId: tokenPayload.steamId
         });
     }
 
