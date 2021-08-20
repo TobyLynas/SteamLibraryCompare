@@ -1,6 +1,5 @@
 .icon {
     /* Empty rule for composition */
-    color: red;
 }
 .icon::before,
 .icon::after {
