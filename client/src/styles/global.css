@@ -15,6 +15,7 @@
     --theme-widget-background: #2f4b67;
     --theme-widget-background-hover: #224e7a;
     --theme-widget-background-active: #1898d0;
+    --theme-widget-focus: #00b3ff77;
     --theme-widget-text: var(--theme-page-text);
     
     /* Textbox */

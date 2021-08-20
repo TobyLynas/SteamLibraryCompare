@@ -1,5 +1,5 @@
 .select {
-    composes: icon from "./widgets.module.css";
+    composes: focusWithin icon from "./widgets.module.css";
     --spacing: 0.4rem;
 
     align-items: center;

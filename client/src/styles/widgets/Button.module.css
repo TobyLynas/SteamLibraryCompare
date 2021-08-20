@@ -1,4 +1,5 @@
 .button {
+    composes: focus from "./widgets.module.css";
     background-color: var(--theme-widget-background);
     border-radius: 0.4rem;
     border: var(--theme-border) 1px solid;
