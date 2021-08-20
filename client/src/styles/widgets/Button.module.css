@@ -1,8 +1,9 @@
 .button {
-    background-color: var(--theme-button-background);
+    composes: focus from "./widgets.module.css";
+    background-color: var(--theme-widget-background);
     border-radius: 0.4rem;
     border: var(--theme-border) 1px solid;
-    color: var(--theme-page-text);
+    color: var(--theme-widget-text);
     font-family: var(--theme-base-font-family);
     font-size: var(--theme-base-font-size);
     padding: 0 1em;
@@ -10,10 +11,10 @@
 }
 
 .button:hover:not(:disabled) {
-    background-color: var(--theme-button-background-hover);
+    background-color: var(--theme-widget-background-hover);
 }
 .button:active:not(:disabled) {
-    background-color: var(--theme-button-background-active);
+    background-color: var(--theme-widget-background-active);
 }
 
 .button:disabled {

@@ -12,10 +12,11 @@
     --theme-box-accents: var(--theme-title-text);
 
     /* Button */
-    --theme-button-background: #2f4b67;
-    --theme-button-background-hover: #224e7a;
-    --theme-button-background-active: #1898d0;
-    --theme-button-text: var(--theme-page-text);
+    --theme-widget-background: #2f4b67;
+    --theme-widget-background-hover: #224e7a;
+    --theme-widget-background-active: #1898d0;
+    --theme-widget-focus: #00b3ff77;
+    --theme-widget-text: var(--theme-page-text);
     
     /* Textbox */
     --theme-textbox-background: #2f4b67;
@@ -32,6 +33,13 @@
     font-size: 10px;
     --theme-base-font-family: "Inter", sans-serif;
     --theme-base-font-size: 1.5rem;
+
+    /* Material icons sizing */
+    --theme-md-icon-size: var(--theme-md-icon-sm);
+    --theme-md-icon-xs: 18px;
+    --theme-md-icon-sm: 24px;
+    --theme-md-icon-md: 36px;
+    --theme-md-icon-lg: 48px;
 }
 
 * {

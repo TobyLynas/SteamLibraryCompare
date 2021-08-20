@@ -1,4 +1,4 @@
-import styles from "../styles/TextInput.module.css";
+import styles from "../../styles/widgets/TextInput.module.css";
 
 interface TextInputProps {
     placeholder: string;

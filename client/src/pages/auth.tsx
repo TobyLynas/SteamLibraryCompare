@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import type { User } from "../UserContext";
 
-import Button from "../components/Button";
+import Button from "../components/widgets/Button";
 import styles from "../styles/auth.module.css";
 
 interface TokenPayload {

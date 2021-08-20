@@ -9,7 +9,7 @@
 .checkbox {
     align-items: center;
     appearance: none;
-    background-color: var(--theme-button-background);
+    background-color: var(--theme-widget-background);
     border: 1px solid var(--theme-border);
     border-radius: 0.2rem;
     display: flex;

@@ -9,6 +9,7 @@ import Index from "./pages/index";
 import Auth from "./pages/auth";
 import HostSetup from "./pages/hostSetup";
 
+import "material-icons/iconfont/material-icons.css";
 import "./styles/global.css";
 
 const App = () => {

@@ -1,0 +1,27 @@
+.focus,
+.focusWithin {
+    /* composition rule */
+}
+.focus:focus,
+.focusWithin:focus-within {
+    box-shadow: 0 0 0 0.2rem var(--theme-widget-focus);
+    outline: none;
+}
+.focusWithin *:focus {
+    outline: none;
+}
+
+.icon {
+    /* composition rule */
+}
+.icon::before,
+.icon::after {
+    align-items: center;
+    display: inline-flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-family: "Material Icons";
+    font-size: var(--theme-md-icon-size);
+    height: var(--theme-md-icon-size);
+    width: var(--theme-md-icon-size);
+}
