@@ -2,6 +2,7 @@
     background-color: var(--theme-textbox-background);
     border: 1px solid var(--theme-border);
     color: var(--theme-textbox-text);
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
+    height: 3.6rem;
     outline: none;
 }
