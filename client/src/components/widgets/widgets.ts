@@ -1,6 +1,6 @@
-enum WidgetVariantBase {
+enum SizeVariantBase {
     Small = "small",
     Large = "large"
 }
 
-export type WidgetVariant = `${WidgetVariantBase}`;
+export type SizeVariant = `${SizeVariantBase}`;

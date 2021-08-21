@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WidgetVariant } from "./widgets";
+import { SizeVariant } from "./widgets";
 import styles from "../../styles/widgets/Select.module.css";
 
 interface SelectOption {
@@ -11,7 +11,7 @@ interface SelectOption {
 interface SelectProps {
     options: SelectOption[];
     value?: string;
-    variant?: WidgetVariant;
+    variant?: SizeVariant;
     onChange?: (ev: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
