@@ -15,6 +15,7 @@ const TextInput = (props: TextInputProps) => {
     return (
         <input
             className={classNames}
+            style={props.style}
             placeholder={props.placeholder}
             type={props.isPassword ? "password" : "text"}
         />
