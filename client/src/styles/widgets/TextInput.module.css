@@ -1,8 +1,21 @@
-.main {
+.textInput {
     background-color: var(--theme-textbox-background);
     border: 1px solid var(--theme-border);
     color: var(--theme-textbox-text);
     border-radius: 0.4rem;
+    font-family: var(--theme-base-font-family);
+    font-size: var(--theme-base-font-size);
     height: 3.6rem;
-    outline: none;
+    padding: 0 0.5em;
+}
+
+.small {
+    composes: textInput;
+    font-size: 1rem;
+    height: 2.4rem;
+}
+.large {
+    composes: textInput;
+    font-size: 2rem;
+    height: 4.8rem;
 }

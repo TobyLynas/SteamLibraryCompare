@@ -11,7 +11,7 @@ const hostSetup = () => {
             <div className={styles.grid}>
                 <TextInput placeholder="Room Name" isPassword={false} />
                 <Checkbox
-                    styling={{ alignSelf: "start" }}
+                    style={{ alignSelf: "start" }}
                     text="Only show games that everyone has"
                 />
                 <div className={styles.enableAuth}>

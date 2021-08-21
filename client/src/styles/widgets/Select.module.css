@@ -6,10 +6,10 @@
     background-color: var(--theme-widget-background);
     border-radius: 0.4rem;
     border: var(--theme-border) 1px solid;
+    box-sizing: content-box;
     color: var(--theme-widget-text);
     display: inline-flex;
     font-family: var(--theme-base-font-family);
-    box-sizing: content-box;
     font-size: var(--theme-base-font-size);
     height: 3.6rem;
     overflow: hidden;
