@@ -1,21 +1,36 @@
 .textInput {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--theme-base-font-family);
+    font-size: var(--theme-base-font-size);
+}
+.textInput > input {
     background-color: var(--theme-textbox-background);
     border: 1px solid var(--theme-border);
     color: var(--theme-textbox-text);
     border-radius: 0.4rem;
-    font-family: var(--theme-base-font-family);
-    font-size: var(--theme-base-font-size);
+    font: inherit;
     height: 3.6rem;
     padding: 0 0.5em;
+}
+
+.textInputLabel {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
 }
 
 .small {
     composes: textInput;
     font-size: 1rem;
+}
+.small > input {
     height: 2.4rem;
 }
+
 .large {
     composes: textInput;
     font-size: 2rem;
+}
+.large > input {
     height: 4.8rem;
 }
