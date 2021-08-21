@@ -28,6 +28,7 @@
     border: 1px solid var(--theme-border);
     border-radius: 0.2rem;
     display: flex;
+    flex-shrink: 0;
     font-size: inherit;
     height: var(--size);
     justify-content: center;
