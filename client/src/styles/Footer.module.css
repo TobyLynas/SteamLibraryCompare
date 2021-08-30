@@ -7,18 +7,22 @@
     background-color: var(--theme-footer-background);
 }
 
-.disclaimer {
-    display: flex;
-    white-space: nowrap;
-    padding-left: var(--theme-sm);
-    margin-left: var(--theme-sm);
-    flex-direction: column;
-    border-left: 2px solid var(--theme-footer-text);
-}
-
 .links {
     display: flex;
     align-items: center;
-    text-align: center;
+}
+
+.disclaimer {
+    border-left: 2px solid var(--theme-footer-text);
+    display: flex;
     flex-direction: column;
+    margin-left: var(--theme-md);
+    max-width: 45ch;
+    padding-left: var(--theme-sm);
+}
+
+.disclaimerCopyright {
+    font-size: 0.8em;
+    margin-top: var(--theme-xs);
+    opacity: 0.8;
 }
