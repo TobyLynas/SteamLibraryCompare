@@ -1,6 +1,6 @@
 import React from "react";
 
-import { WidgetVariant } from "./widgets";
+import { WidgetProps } from "./widgets";
 import styles from "../../styles/widgets/Select.module.css";
 
 interface SelectOption {
@@ -8,10 +8,9 @@ interface SelectOption {
     text: string;
 }
 
-interface SelectProps {
+interface SelectProps extends WidgetProps {
     options: SelectOption[];
     value?: string;
-    variant?: WidgetVariant;
     onChange?: (ev: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 

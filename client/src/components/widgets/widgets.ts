@@ -1,6 +1,11 @@
-enum WidgetVariantBase {
+import React from "react";
+
+enum WidgetSizeVariant {
     Small = "small",
     Large = "large"
 }
 
-export type WidgetVariant = `${WidgetVariantBase}`;
+export interface WidgetProps {
+    style?: React.CSSProperties;
+    variant?: `${WidgetSizeVariant}`;
+}

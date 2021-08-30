@@ -1,11 +1,10 @@
 import React from "react";
 
-import { WidgetVariant } from "./widgets";
+import { WidgetProps } from "./widgets";
 import styles from "../../styles/widgets/Button.module.css";
 
-interface ButtonProps {
+interface ButtonProps extends WidgetProps {
     text: string;
-    variant?: WidgetVariant;
     disabled?: boolean;
     onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
