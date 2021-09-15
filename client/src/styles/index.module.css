@@ -3,46 +3,27 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color:rgba(0, 0, 0, 0.25);
 }
-.landingHeader {
-    display: flex;
-    background-image: url("../assets/landing-back-img.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+.rearBox {
+    width: 70%;
+    height: 90%;
+    background-color: #1B2838;
+    align-self: flex-end;
 }
-.transparentBox {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    justify-content: space-between;
+.middleBox {
+    position: absolute;
+    height: 30%;
+    width: 50%;
+    background-color:#2A475ECC;
+    align-self: flex-end;
+    justify-self: center;
     margin: var(--theme-lg);
 }
-.grandText {
-    border-bottom: var(--theme-box-accents) 1px solid;
-    font-size: var(--theme-md);
-    padding-bottom: var(--theme-xs);
-    margin-bottom: var(--theme-xs);
-}
-.subText {
-    font-size: var(--theme-sm);
-    padding-bottom: var(--theme-lg);
-}
-
-.highlightBox {
-    background-color: var(--theme-box-background);
-    padding: var(--theme-md);
-}
-.gettingStarted {
-    border-bottom: var(--theme-box-accents) 1px solid;
-    font-size: var(--theme-md);
-    margin-bottom: var(--theme-sm);
-}
-.alignmentBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.frontBox {
+    position: absolute;
+    width: 45%;
+    height: 60%;
+    background-color: #2A475E;
+    margin: var(--theme-lg);
 }

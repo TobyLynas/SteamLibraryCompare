@@ -25,25 +25,9 @@ const Index = () => {
 
     return (
         <div className={styles.pageContainer}>
-            <div className={styles.landingHeader}>
-                <div className={styles.transparentBox}>
-                    <h1 className={styles.grandText}>What is this?</h1>
-                    <p className={styles.subText}>placeholder</p>
-                    <div className={styles.highlightBox}>
-                        <h2 className={styles.gettingStarted}>
-                            Getting started
-                        </h2>
-                        <div className={styles.alignmentBox}>
-                            <Link to="/auth">
-                                <Button text="Host Room" variant="large" />
-                            </Link>
-                            <Button text="Join Room" variant="large" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <FAQ />
+            <div className={styles.rearBox}></div>
+            <div className={styles.middleBox}></div>
+            <div className={styles.frontBox}></div>
         </div>
     );
 };
