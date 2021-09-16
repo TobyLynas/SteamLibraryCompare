@@ -8,3 +8,8 @@
     text-transform: uppercase;
     font-size: var(--theme-lg);
 }
+
+.subHeading {
+    font-size: var(--theme-md);
+    color: var(--theme-title-text);
+}

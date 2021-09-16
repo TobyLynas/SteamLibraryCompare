@@ -25,25 +25,38 @@ const Index = () => {
 
     return (
         <div className={styles.pageContainer}>
-            <div className={styles.landingHeader}>
-                <div className={styles.transparentBox}>
-                    <h1 className={styles.grandText}>What is this?</h1>
-                    <p className={styles.subText}>placeholder</p>
-                    <div className={styles.highlightBox}>
-                        <h2 className={styles.gettingStarted}>
-                            Getting started
-                        </h2>
-                        <div className={styles.alignmentBox}>
-                            <Link to="/auth">
-                                <Button text="Host Room" variant="large" />
-                            </Link>
-                            <Button text="Join Room" variant="large" />
-                        </div>
-                    </div>
-                </div>
+            <div className={styles.rearBox}></div>
+            <div className={styles.middleBox}>
+                <h2 className={styles.tagline}>
+                    Compare libraries with your friends.
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer ac blandit elit. Sed iaculis eu ligula ut dictum.
+                    Donec eget nisl in tortor viverra vestibulum eget non neque.
+                    Cras a tellus mauris. Sed ac ultrices enim. Class aptent
+                    taciti sociosqu ad litora torquent per conubia nostra, per
+                    inceptos himenaeos. Phasellus eleifend, nisl at varius
+                    accumsan, orci enim viverra dui, vel sagittis quam eros in
+                    erat. Mauris pharetra condimentum lorem sed lacinia.
+                    Pellentesque id massa consequat, efficitur elit ac, varius
+                    velit. Vivamus facilisis erat eget consequat tristique.
+                    Integer sed nisl maximus, eleifend lectus non, consectetur
+                    velit.
+                </p>
             </div>
-
-            <FAQ />
+            <div className={styles.frontBox}>
+                <Link to="/auth">
+                    <img
+                        src="sits_new3X.png"
+                        srcSet="sits_new2X.png"
+                        alt="Sign in with Steam button"
+                    />
+                </Link>
+                <p className={styles.text}>
+                    PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC
+                </p>
+            </div>
         </div>
     );
 };
