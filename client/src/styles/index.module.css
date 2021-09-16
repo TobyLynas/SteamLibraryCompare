@@ -4,7 +4,6 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
 }
 .rearBox {
@@ -22,6 +21,18 @@
     width: 40vw;
     position: absolute;
     transform: translate(-70%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--theme-lg);
+}
+.headingText {
+    border-bottom: blue 1px solid;
+    margin-bottom: var(--theme-md);
+    width: 100%;
+}
+.bodyBox {
+    
 }
 .frontBox {
     background-color: #2A475E;
@@ -31,4 +42,12 @@
     width: 40vw;
     position: absolute;
     transform: translate(40%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imageContainer {
+    width: 80%;
+    padding: var(--theme-sm);
 }
