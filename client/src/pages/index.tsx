@@ -48,9 +48,9 @@ const Index = () => {
             <div className={styles.frontBox}>
                 <Link to="/auth">
                     <img
-                        className={styles.imageContainer}
-                        src="sits_new3x.png"
-                        onClick={() => console.log("Do Something")}
+                        src="sits_new3X.png"
+                        srcSet="sits_new2X.png"
+                        alt="Sign in with Steam button"
                     />
                 </Link>
                 PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC

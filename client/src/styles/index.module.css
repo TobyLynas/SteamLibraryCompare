@@ -47,7 +47,3 @@
     justify-content: center;
     align-items: center;
 }
-.imageContainer {
-    width: 37.5vw;
-    padding: var(--theme-sm);
-}
