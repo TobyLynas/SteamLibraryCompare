@@ -28,9 +28,9 @@ const Index = () => {
             <div className={styles.rearBox}></div>
             <div className={styles.middleBox}>
                 <h2 className={styles.tagline}>
-                    Compare libraries with your freinds.
+                    Compare libraries with your friends.
                 </h2>
-                <p >
+                <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Integer ac blandit elit. Sed iaculis eu ligula ut dictum.
                     Donec eget nisl in tortor viverra vestibulum eget non neque.
@@ -53,7 +53,9 @@ const Index = () => {
                         alt="Sign in with Steam button"
                     />
                 </Link>
-                PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC
+                <p className={styles.text}>
+                    PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC
+                </p>
             </div>
         </div>
     );
