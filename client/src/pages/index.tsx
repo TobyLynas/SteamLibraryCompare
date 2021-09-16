@@ -35,7 +35,9 @@ const Index = () => {
                 </div>
             </div>
             <div className={styles.frontBox}>
-                <img className={styles.imageContainer} src="sits_new3x.png" onClick={() => console.log("Do Something")} />
+                <Link to="/auth">
+                    <img className={styles.imageContainer} src="sits_new3x.png" onClick={() => console.log("Do Something")} />
+                </Link>
                 PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC
             </div>
         </div>

@@ -27,7 +27,7 @@
     padding: var(--theme-lg);
 }
 .headingText {
-    border-bottom: blue 1px solid;
+    border-bottom: var(--theme-box-accents) 1px solid;
     margin-bottom: var(--theme-md);
     width: 100%;
 }
@@ -48,6 +48,6 @@
     align-items: center;
 }
 .imageContainer {
-    width: 80%;
+    width: 40vw;
     padding: var(--theme-sm);
 }
