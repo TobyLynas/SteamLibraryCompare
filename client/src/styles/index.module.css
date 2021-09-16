@@ -31,9 +31,6 @@
     margin-bottom: var(--theme-md);
     width: 100%;
 }
-.text {
-    
-}
 .frontBox {
     background-color: #2A475E;
     margin: var(--theme-lg);

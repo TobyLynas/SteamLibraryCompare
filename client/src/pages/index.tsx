@@ -27,10 +27,10 @@ const Index = () => {
         <div className={styles.pageContainer}>
             <div className={styles.rearBox}></div>
             <div className={styles.middleBox}>
-                <div className={styles.tagline}>
+                <h2 className={styles.tagline}>
                     Compare libraries with your freinds.
-                </div>
-                <div className={styles.text}>
+                </h2>
+                <p >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Integer ac blandit elit. Sed iaculis eu ligula ut dictum.
                     Donec eget nisl in tortor viverra vestibulum eget non neque.
@@ -43,7 +43,7 @@ const Index = () => {
                     velit. Vivamus facilisis erat eget consequat tristique.
                     Integer sed nisl maximus, eleifend lectus non, consectetur
                     velit.
-                </div>
+                </p>
             </div>
             <div className={styles.frontBox}>
                 <Link to="/auth">
