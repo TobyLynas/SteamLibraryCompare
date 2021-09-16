@@ -27,16 +27,31 @@ const Index = () => {
         <div className={styles.pageContainer}>
             <div className={styles.rearBox}></div>
             <div className={styles.middleBox}>
-                <div className={styles.headingText}>
+                <div className={styles.tagline}>
                     Compare libraries with your freinds.
                 </div>
-                <div className={styles.bodyText}>
-                    we could put text here?
+                <div className={styles.text}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer ac blandit elit. Sed iaculis eu ligula ut dictum.
+                    Donec eget nisl in tortor viverra vestibulum eget non neque.
+                    Cras a tellus mauris. Sed ac ultrices enim. Class aptent
+                    taciti sociosqu ad litora torquent per conubia nostra, per
+                    inceptos himenaeos. Phasellus eleifend, nisl at varius
+                    accumsan, orci enim viverra dui, vel sagittis quam eros in
+                    erat. Mauris pharetra condimentum lorem sed lacinia.
+                    Pellentesque id massa consequat, efficitur elit ac, varius
+                    velit. Vivamus facilisis erat eget consequat tristique.
+                    Integer sed nisl maximus, eleifend lectus non, consectetur
+                    velit.
                 </div>
             </div>
             <div className={styles.frontBox}>
                 <Link to="/auth">
-                    <img className={styles.imageContainer} src="sits_new3x.png" onClick={() => console.log("Do Something")} />
+                    <img
+                        className={styles.imageContainer}
+                        src="sits_new3x.png"
+                        onClick={() => console.log("Do Something")}
+                    />
                 </Link>
                 PLEASE ENSURE YOUR STEAM PROFILE IS PUBLIC
             </div>

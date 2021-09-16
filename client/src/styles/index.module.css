@@ -26,12 +26,12 @@
     align-items: center;
     padding: var(--theme-lg);
 }
-.headingText {
+.tagline {
     border-bottom: var(--theme-box-accents) 1px solid;
     margin-bottom: var(--theme-md);
     width: 100%;
 }
-.bodyBox {
+.text {
     
 }
 .frontBox {
@@ -48,6 +48,6 @@
     align-items: center;
 }
 .imageContainer {
-    width: 40vw;
+    width: 37.5vw;
     padding: var(--theme-sm);
 }
