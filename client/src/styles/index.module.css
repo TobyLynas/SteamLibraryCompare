@@ -1,29 +1,34 @@
 .pageContainer {
+    background-color:rgba(0, 0, 0, 0.25);
+    z-index: 0;
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    background-color:rgba(0, 0, 0, 0.25);
+    flex-direction: row;
+    justify-content: center;
 }
 .rearBox {
-    width: 70%;
-    height: 90%;
     background-color: #1B2838;
-    align-self: flex-end;
+    z-index: 1;
+    height: 75vh;
+    width: 60vw;
+    transform: translate(20%);
 }
 .middleBox {
-    position: absolute;
-    height: 30%;
-    width: 50%;
     background-color:#2A475ECC;
-    align-self: flex-end;
-    justify-self: center;
     margin: var(--theme-lg);
+    z-index: 2;
+    height: 50vh;
+    width: 40vw;
+    position: absolute;
+    transform: translate(-70%, 0);
 }
 .frontBox {
-    position: absolute;
-    width: 45%;
-    height: 60%;
     background-color: #2A475E;
     margin: var(--theme-lg);
+    z-index: 3;
+    height: 30vh;
+    width: 40vw;
+    position: absolute;
+    transform: translate(40%);
 }
