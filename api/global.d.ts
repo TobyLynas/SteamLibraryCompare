@@ -2,10 +2,16 @@
 declare namespace NodeJS {
     interface ProcessEnv {
         /**
-         * API server port.
+         * HTTP server port.
+         * Defaults to 8999.
+         */
+        PORT_HTTP: string;
+        /**
+         * HTTPS server port.
          * Defaults to 9000.
          */
-        PORT: string;
+        PORT_HTTPS: string;
+
         /**
          * API server base URL. Should include port.
          * Defaults to "http://localhost:<port>"
@@ -16,6 +22,15 @@ declare namespace NodeJS {
          * Defaults to "http://localhost:9001".
          */
         FRONTEND_URL: string;
+
+        /**
+         * Path to the TLS certificate file.
+         */
+        TLS_CERT_FILE: string;
+        /**
+         * Path to the TLS private key file.
+         */
+        TLS_KEY_FILE: string;
 
         /**
          * Private key for signing and verifying JWTs.

@@ -6,15 +6,18 @@ import { authenticateToken } from "./auth";
 
 export interface Poll {
     name: string;
-    /**
-     * SteamID of the poll author.
-     */
-    author: string;
+    authorId: string;
     options: PollOption[];
 }
+
 export interface PollOption {
     content: string;
-    votes: number;
+    votes: PollVote[];
+}
+
+export interface PollVote {
+    voterId?: string;
+    voterIp: string;
 }
 
 /**
@@ -72,10 +75,10 @@ router.post(
         const pollId = nanoid(8);
         polls.set(pollId, {
             name,
-            author: req.user?.steamId,
+            authorId: req.user?.steamId,
             options: options.map((option: { content: string }) => ({
                 content: option.content,
-                votes: 0
+                votes: []
             }))
         });
 
@@ -89,8 +92,9 @@ router.post(
  */
 router.put(
     "/vote/:pollId/:optionIndex",
+    authenticateToken(false),
     param("pollId").notEmpty(),
-    param("optionIndex").isInt().toInt(),
+    param("optionIndex").isInt(),
     (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -98,7 +102,7 @@ router.put(
         }
 
         const pollId: string = req.params?.pollId;
-        const optionIndex: number = req.params?.optionIndex;
+        const optionIndex: number = parseInt(req.params?.optionIndex, 10);
 
         // Check poll exists
         const poll = polls.get(pollId);
@@ -110,7 +114,29 @@ router.put(
             return res.sendStatus(500);
         }
 
-        poll.options[optionIndex].votes++;
+        for (const option of poll.options) {
+            for (const vote of option.votes) {
+                /**
+                 * If a vote has already been recorded from this IP address or the
+                 * same authenticated user, return 403.
+                 */
+                if (
+                    req.ip === vote.voterIp ||
+                    (req.isAuthenticated() && req.user.steamId === vote.voterId)
+                ) {
+                    return res.sendStatus(403);
+                }
+            }
+        }
+
+        const { votes } = poll.options[optionIndex];
+
+        const vote: PollVote = { voterIp: req.ip };
+        if (req.isAuthenticated()) {
+            vote.voterId = req.user.steamId;
+        }
+
+        votes.push(vote);
         polls.set(pollId, poll);
     }
 );
@@ -130,7 +156,7 @@ router.delete(
         }
 
         // Only the author can delete a poll
-        if (req.user?.steamId !== poll.author) {
+        if (req.user?.steamId !== poll.authorId) {
             return res.sendStatus(403);
         }
 
