@@ -7,13 +7,14 @@ import { Strategy as SteamStrategy } from "passport-steam";
  * JWT verification middleware. Token passed in Authorization HTTP header with
  * Bearer scheme.
  *
- * @param secret Private key. Defaults to JWT_SECRET env.
+ * @param fail Should fail the request if unauthenticated.
  * @returns Express RequestHandler middleware
  */
-export function authenticateToken(): RequestHandler {
+export function authenticateToken(fail = true): RequestHandler {
     return (req, res, next) => {
         const token = req.headers.authorization?.split(" ").pop();
         if (token == null) {
+            if (!fail) return next();
             return res.sendStatus(401);
         }
 
@@ -21,6 +22,7 @@ export function authenticateToken(): RequestHandler {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
             req.user = { steamId: (decoded as Express.User).steamId };
         } catch (err) {
+            if (!fail) return next();
             return res.sendStatus(403);
         }
 
@@ -100,7 +102,7 @@ router.get(
 
         // Send token message and close frame
         res.send(`
-            <script>
+            <script nonce="${res.locals.nonce}">
                 window.opener.postMessage({
                     token: "${token}"
                 }, "${process.env.FRONTEND_URL}");
