@@ -1,6 +1,7 @@
 :root {
     /* Default theme */
     --theme-page-background: #1b2838;
+    --theme-page-accent: #171a2185;
     --theme-page-text: white;
     --theme-header-background: #171a21;
     --theme-header-text: var(--theme-page-text);
