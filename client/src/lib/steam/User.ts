@@ -120,6 +120,24 @@ export default class User {
 
         return res.response.games.map(mapToGame);
     }
+
+    /**
+     * Fetches friends list and player summaries and wraps in {@link User}
+     * objects.
+     *
+     * @returns Array of {@link User} objects.
+     */
+    async fetchFriendsList(): Promise<Array<User>> {
+        const summariesRes = await this.api.ISteamUser.GetPlayerSummaries(
+            (
+                await this.api.ISteamUser.GetFriendList(this.steamId)
+            ).friendslist.friends.map(friend => friend.steamid)
+        );
+
+        return summariesRes.response.players.map(
+            player => new User(this.api, player)
+        );
+    }
 }
 
 /** Options for {@link User.fetchGames}. */
