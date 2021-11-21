@@ -6,11 +6,12 @@
 .container {
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 .primaryContent{
     padding: var(--theme-md);
     width: 70vw;
+    max-height: 60vh;
+    overflow: scroll;
 }
 .secondaryContent {
     background-color: var(--theme-page-accent);
