@@ -8,7 +8,7 @@
     flex-direction: row;
 }
 .primaryContent{
-    padding: var(--theme-md);
+    padding: 0 var(--theme-md);
     width: 70vw;
     max-height: 60vh;
     overflow: scroll;
@@ -16,4 +16,7 @@
 .secondaryContent {
     background-color: var(--theme-page-accent);
     width: 30vw;
+}
+.text{
+    padding-bottom: var(--theme-md)
 }

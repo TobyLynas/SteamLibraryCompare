@@ -6,13 +6,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: none;
+    margin-bottom: var(--theme-sm)
 }
 .unselected{
-    width: 100%;
+    composes: selected;
     background-color: var(--theme-friendbar-unselected);
-    padding: var(--theme-xs);
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
