@@ -8,6 +8,7 @@ import PageLayout from "./components/PageLayout";
 import Index from "./pages/index";
 import Auth from "./pages/auth";
 import HostSetup from "./pages/hostSetup";
+import SelectFriends from "./pages/SelectFriends";
 
 import "material-icons/iconfont/material-icons.css";
 import "./styles/global.css";
@@ -28,13 +29,13 @@ const App = () => {
                             // Set user and redirect to index
                             onAuthSuccess={user => {
                                 setUser(user);
-                                history.push("/");
+                                history.push("/setup/friends");
                             }}
                             onAuthFailed={() => {}}
                         />
                     </Route>
-                    <Route path="/host">
-                        <HostSetup />
+                    <Route path="/setup/friends">
+                        <SelectFriends />
                     </Route>
                 </Switch>
             </PageLayout>

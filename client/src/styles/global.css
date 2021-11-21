@@ -1,6 +1,7 @@
 :root {
     /* Default theme */
     --theme-page-background: #1b2838;
+    --theme-page-accent: #171a2185;
     --theme-page-text: white;
     --theme-header-background: #171a21;
     --theme-header-text: var(--theme-page-text);
@@ -21,6 +22,10 @@
     /* Textbox */
     --theme-textbox-background: #2f4b67;
     --theme-textbox-text: var(--theme-page-text);
+
+    /* FriendBar */
+    --theme-friendbar-unselected: #529C6B;
+    --theme-friendbar-selected:  #2A475E;
 
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;

@@ -1,0 +1,16 @@
+.selected{
+    width: 100%;
+    background-color: var(--theme-friendbar-selected);
+    padding: var(--theme-xs);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    margin-bottom: var(--theme-sm);
+    color: var(--theme-page-text);
+}
+.unselected{
+    composes: selected;
+    background-color: var(--theme-friendbar-unselected);
+}
