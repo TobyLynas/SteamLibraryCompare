@@ -8,7 +8,7 @@ export interface FriendBarProps {
 const FriendBar = (props: FriendBarProps) => {
     const [barState, setBarState] = useState(false);
     return (
-        <button onClick={() => setBarState(!barState)} className={barState===true?styles.unselected:styles.selected}>{props.displayName} <Checkbox text="" isChecked={barState} style={ barState?{backgroundColor: "#529C6B", border: "none"}:{backgroundColor:'#2A475E', border: "none"}} /> </button>
+        <button onClick={() => setBarState(!barState)} className={barState===true?styles.unselected:styles.selected}>{props.displayName} <Checkbox text="" isChecked={barState} onChange={()=>{}} style={ barState?{backgroundColor: "#529C6B", border: "none"}:{backgroundColor:'#2A475E', border: "none"}} /> </button>
     );
 };
 

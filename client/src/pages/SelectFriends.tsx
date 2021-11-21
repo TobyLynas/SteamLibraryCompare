@@ -37,8 +37,8 @@ const SelectFriends = () => {
                     {friendsList && (
                         <div className={styles.primaryContent}>
                                 <div className={styles.text}>Select friends you want to compare libraries:</div>
-                            {friendsList.map(x => (
-                                <FriendBar displayName={x.displayName} />
+                            {friendsList.map((x, i) => (
+                                <FriendBar displayName={x.displayName} key={i} />
                             ))}
                         </div>
                     )}
