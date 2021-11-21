@@ -23,6 +23,10 @@
     --theme-textbox-background: #2f4b67;
     --theme-textbox-text: var(--theme-page-text);
 
+    /* FriendBar */
+    --theme-friendbar-unselected: #529C6B;
+    --theme-friendbar-selected:  #2A475E;
+
     /* Sizes for padding, font size, etc */
     --theme-xs: 0.5em;
     --theme-sm: 1em;

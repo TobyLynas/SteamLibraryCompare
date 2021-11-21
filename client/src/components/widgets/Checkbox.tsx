@@ -16,11 +16,12 @@ const Checkbox = (props: CheckboxProps) => {
     }
 
     return (
-        <label className={classNames} style={props.style}>
+        <label className={classNames} >
             <input
                 type="checkbox"
                 checked={props.isChecked}
                 className={styles.checkbox}
+                style={props.style}
                 onChange={props.onChange}
             ></input>
             {props.text}
