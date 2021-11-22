@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/GameTally.module.css";
 import monster1Icon from "../assets/monster1.svg";
 import monster2Icon from "../assets/monster2.svg";
+import monster3Icon from "../assets/monster3.svg";
 
 interface Game {
     name: string;
@@ -98,7 +99,7 @@ const GameRating = (props: GameRatingProps) => (
 
 const VoteTally = (props: VoteTallyProps) => {
     const [showPopup, setShowPopup] = useState(false);
-    const iconArray = [monster1Icon, monster2Icon, monster1Icon];
+    const iconArray = [monster1Icon, monster2Icon, monster3Icon];
 
     return (
         <div className={styles.voteTally}>
