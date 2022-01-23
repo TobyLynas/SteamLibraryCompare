@@ -12,13 +12,16 @@
     --theme-box-background: rgba(42, 71, 94, 0.8);
     --theme-box-accents: var(--theme-title-text);
 
+    --theme-gold: #d49820;
+    --theme-green: #5cc780;
+
     /* Button */
     --theme-widget-background: #2f4b67;
     --theme-widget-background-hover: #224e7a;
     --theme-widget-background-active: #1898d0;
     --theme-widget-focus: #00b3ff77;
     --theme-widget-text: var(--theme-page-text);
-    
+
     /* Textbox */
     --theme-textbox-background: #2f4b67;
     --theme-textbox-text: var(--theme-page-text);
@@ -28,6 +31,7 @@
     --theme-friendbar-selected:  #2A475E;
 
     /* Sizes for padding, font size, etc */
+    --theme-xxs: 0.25em;
     --theme-xs: 0.5em;
     --theme-sm: 1em;
     --theme-md: 1.5em;

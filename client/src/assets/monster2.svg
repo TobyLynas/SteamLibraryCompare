@@ -1,0 +1,29 @@
+<svg width="65" height="71" viewBox="0 0 65 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="10.5" cy="3.5" r="3.5" fill="white"/>
+<ellipse cx="17.5" cy="9.5" rx="10.5" ry="9.5" fill="#5CC780"/>
+<ellipse cx="17.5" cy="10" rx="8.5" ry="8" fill="white"/>
+<ellipse cx="26" cy="21.5" rx="18" ry="16.5" fill="#5CC780"/>
+<ellipse cx="32.5" cy="55.5" rx="22.5" ry="3.5" fill="#5CC780"/>
+<ellipse cx="32" cy="31.5" rx="26" ry="25.5" fill="white"/>
+<ellipse cx="32.5" cy="56.5" rx="22.5" ry="3.5" fill="white"/>
+<circle cx="32.5" cy="26.5" r="12.5" fill="#5CC780"/>
+<circle cx="34.5" cy="27.5" r="8.5" fill="white"/>
+<circle cx="33.5" cy="24.5" r="2.5" fill="#5CC780"/>
+<circle cx="37.5" cy="31.5" r="1.5" fill="#5CC780"/>
+<ellipse cx="18.5" cy="39" rx="8.5" ry="6" fill="white"/>
+<ellipse cx="46.5" cy="39" rx="8.5" ry="6" fill="white"/>
+<path d="M43.0433 41.9795C34.5818 50.9264 24.8229 45.7203 21.0011 41.9989" stroke="#5CC780" stroke-width="5"/>
+<path d="M41.9999 43C34.5396 50.8883 25.5587 45.9419 22.0008 42.4827" stroke="white" stroke-width="3"/>
+<ellipse cx="20.5" cy="37" rx="1.5" ry="1" fill="#5CC780"/>
+<ellipse cx="16.5" cy="39" rx="1.5" ry="1" fill="#5CC780"/>
+<ellipse cx="15.5" cy="36" rx="1.5" ry="1" fill="#5CC780"/>
+<path d="M47.289 55.1323C48.8494 68.3385 62.52 48.8492 60.981 62.5589" stroke="white" stroke-width="5"/>
+<path d="M26.2929 58.9324C10.9315 52.5218 7.20571 62.9495 0.481891 62.3472" stroke="white" stroke-width="5"/>
+<rect x="24.7563" y="42" width="4.53743" height="4" transform="rotate(26.0444 24.7563 42)" fill="#5CC780"/>
+<path d="M27.3725 63.4902C16.6407 54.5809 11.7107 60.9748 10.5872 65.2854" stroke="#5CC780" stroke-width="5"/>
+<path d="M49.2053 67.5784C44.7422 56.0462 39.2088 60.612 37 64.3365" stroke="#5CC780" stroke-width="5"/>
+<path d="M14.7709 67.1958C5.19407 53.5258 39.2821 67.7525 25.394 54.7375" stroke="white" stroke-width="5"/>
+<path d="M33.1375 54.9588C26.4319 67.7605 52.4807 55.9651 42.3251 67.8513" stroke="white" stroke-width="5"/>
+<path d="M5 53.5954C22.2767 51.7105 26.1305 54.4367 25.8979 56.0354" stroke="#5CC780" stroke-width="2"/>
+<path d="M43 54.0154C59.4492 48.4063 63.805 50.226 63.9267 51.8369" stroke="#5CC780" stroke-width="2"/>
+</svg>
