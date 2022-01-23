@@ -13,10 +13,13 @@
     max-height: 60vh;
     overflow: scroll;
 }
+.text{
+    padding-bottom: var(--theme-md)
+}
 .secondaryContent {
     background-color: var(--theme-page-accent);
     width: 30vw;
-}
-.text{
-    padding-bottom: var(--theme-md)
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }

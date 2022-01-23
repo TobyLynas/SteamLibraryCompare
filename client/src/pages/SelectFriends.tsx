@@ -1,9 +1,12 @@
 import styles from "../styles/SelectFriends.module.css";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import VotingPageHeader from "../components/VotingPageHeader";
 import UserContext from "../UserContext";
 import Steam, { User } from "../lib/steam";
 import FriendBar from "../components/FriendBar";
+import Button from "../components/widgets/Button";
 
 const SelectFriends = () => {
     const user = useContext(UserContext);
@@ -36,13 +39,23 @@ const SelectFriends = () => {
                 <div className={styles.container}>
                     {friendsList && (
                         <div className={styles.primaryContent}>
-                                <div className={styles.text}>Select friends you want to compare libraries:</div>
+                            <div className={styles.text}>
+                                Select friends you want to compare libraries:
+                            </div>
                             {friendsList.map((x, i) => (
-                                <FriendBar displayName={x.displayName} key={i} />
+                                <FriendBar
+                                    displayName={x.displayName}
+                                    key={i}
+                                />
                             ))}
                         </div>
                     )}
-                    <div className={styles.secondaryContent}></div>
+                    <div className={styles.secondaryContent}>
+                        other
+                        <Link to="/setup/games">
+                            <Button text="submit" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         );

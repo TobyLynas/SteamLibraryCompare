@@ -9,6 +9,7 @@ import Index from "./pages/index";
 import Auth from "./pages/auth";
 import HostSetup from "./pages/hostSetup";
 import SelectFriends from "./pages/SelectFriends";
+import SelectGames from "./pages/SelectGames";
 
 import "material-icons/iconfont/material-icons.css";
 import "./styles/global.css";
@@ -36,6 +37,9 @@ const App = () => {
                     </Route>
                     <Route path="/setup/friends">
                         <SelectFriends />
+                    </Route>
+                    <Route path="/setup/games">
+                        <SelectGames />
                     </Route>
                 </Switch>
             </PageLayout>
