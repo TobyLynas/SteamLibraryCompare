@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import jwt from "jsonwebtoken";
+import * as jose from "jose";
 
 import type { User } from "../UserContext";
 
@@ -78,7 +78,7 @@ export default class Auth extends Component<AuthProps, AuthState> {
         // Only trust messages from the popup (hosted on the server)
         if (ev.origin !== process.env.REACT_APP_API_URL) return;
 
-        const tokenPayload = jwt.decode(ev.data.token) as TokenPayload;
+        const tokenPayload = jose.decodeJwt(ev.data.token) as TokenPayload;
         if (!tokenPayload.steamId) {
             this.props.onAuthFailed();
             return;
