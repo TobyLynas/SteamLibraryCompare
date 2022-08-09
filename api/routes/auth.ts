@@ -3,17 +3,31 @@ import jwt from "jsonwebtoken";
 import passport from "passport";
 import { Strategy as SteamStrategy } from "passport-steam";
 
+function parseCookies(cookieString: string) {
+    const cookies: Partial<Record<string, string>> = {};
+    for (const cookie of cookieString.split(";")) {
+        const [name, value] = cookie.split("=");
+        if (!name || !value) continue;
+        cookies[name] = value;
+    }
+
+    return cookies;
+}
+
 /**
- * JWT verification middleware. Token passed in Authorization HTTP header with
- * Bearer scheme.
+ * JWT verification middleware. Token passed as httpOnly cookie or as a fallback
+ * in Authorization HTTP header with Bearer scheme.
  *
  * @param fail Should fail the request if unauthenticated.
  * @returns Express RequestHandler middleware
  */
 export function authenticateToken(fail = true): RequestHandler {
     return (req, res, next) => {
-        const token = req.headers.authorization?.split(" ").pop();
-        if (token == null) {
+        const token =
+            parseCookies(req.headers.cookie ?? "").token ??
+            req.headers.authorization?.split(" ").pop();
+
+        if (!token) {
             if (!fail) return next();
             return res.sendStatus(401);
         }
@@ -93,12 +107,23 @@ router.get(
         session: false
     }),
     (req, res) => {
+        const TOKEN_EXPIRE = 7200;
+
         // Sign JWT
         const token = jwt.sign(
             { steamId: req.user?.steamId },
             process.env.JWT_SECRET,
-            { expiresIn: "7200s" }
+            { expiresIn: `${TOKEN_EXPIRE.toString()}s` }
         );
+
+        const expires = new Date(Date.now() + TOKEN_EXPIRE * 1000);
+        res.cookie("token", token, {
+            expires,
+            secure: false,
+            httpOnly: true
+        });
+
+        res.cookie("steamId", req.user?.steamId, { expires });
 
         // Send token message and close frame
         res.send(`

@@ -83,7 +83,8 @@ app.use(
 
 // Only allow in-browser API requests from frontend origin
 const corsOpts: CorsOptions = {
-    origin: process.env.FRONTEND_URL
+    origin: process.env.FRONTEND_URL,
+    credentials: true
 };
 
 // Add routes

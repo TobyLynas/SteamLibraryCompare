@@ -1,0 +1,155 @@
+:root {
+    /* Default theme */
+    --theme-page-background: #1b2838;
+    --theme-page-accent: #171a2185;
+    --theme-page-text: white;
+    --theme-header-background: #171a21;
+    --theme-header-text: var(--theme-page-text);
+    --theme-footer-background: #2a475e;
+    --theme-footer-text: #c5c5c5;
+    --theme-border: rgba(255, 255, 255, 0.25);
+    --theme-title-text: #66c0f4;
+    --theme-box-background: rgba(42, 71, 94, 0.8);
+    --theme-box-accents: var(--theme-title-text);
+
+    --theme-page-text-secondary: rgba(255, 255, 255, 0.65);
+
+    --theme-page-title: var(--theme-page-text);
+    --theme-page-title-separator: #66c0f4;
+
+    --theme-friend-background: #2a475e;
+    --theme-friend-selected-background: #529c6b;
+
+    /* Button */
+    --theme-widget-background: #2f4b67;
+    --theme-widget-background-hover: #224e7a;
+    --theme-widget-background-active: #1898d0;
+    --theme-widget-focus: #00b3ff77;
+    --theme-widget-text: var(--theme-page-text);
+
+    --system-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Base font size */
+    font-size: 10px;
+    --theme-base-font-family: Inter, var(--system-font-stack);
+    --theme-base-font-size: 1.5rem;
+
+    /* Material icons sizing */
+    --theme-md-icon-size: var(--theme-md-icon-sm);
+    --theme-md-icon-xs: 18px;
+    --theme-md-icon-sm: 24px;
+    --theme-md-icon-md: 36px;
+    --theme-md-icon-lg: 48px;
+
+    --theme-font-size-sm: 1.2rem;
+    --theme-font-size-md: 1.5rem;
+    --theme-font-size-lg: 1.8rem;
+    --theme-font-size-xlg: 2.4rem;
+    --theme-font-size-xxlg: 3.6rem;
+
+    --theme-spacing-sm: 0.4rem;
+    --theme-spacing-md: 0.8rem;
+    --theme-spacing-lg: 1.6rem;
+    --theme-spacing-xlg: 2.4rem;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        --theme-base-font-family: "Inter var", var(--system-font-stack);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--theme-page-background);
+    color: var(--theme-page-text);
+    font-family: var(--theme-base-font-family);
+    font-size: var(--theme-base-font-size);
+    margin: 0;
+}
+
+a {
+    text-decoration: initial;
+    color: currentColor;
+}
+
+p {
+    margin: var(--theme-spacing-md) 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    margin: initial;
+}
+
+input[type="text"] {
+    background: initial;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    color: inherit;
+    font: inherit;
+    height: 32px;
+    padding: 0 var(--theme-spacing-md);
+    width: 100%;
+}
+
+.box {
+    background-color: var(--theme-box-background);
+    padding: 20px;
+}
+.box__title {
+    font-size: var(--theme-page-title);
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: var(--theme-spacing-sm);
+    margin-bottom: var(--theme-spacing-md);
+    border-bottom: 1px solid var(--theme-page-title-separator);
+    width: max-content;
+}
+
+.material-icons-pseudo::before,
+.material-icons-pseudo::after {
+    font-family: "Material Icons Round";
+    font-weight: normal;
+    font-style: normal;
+    font-size: var(--theme-md-icon-size);
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
+}
+
+/* Text classes */
+.secondary {
+    color: var(--theme-page-text-secondary);
+}
+.small {
+    font-size: 0.85em;
+}
+
+/* App root */
+#app {
+    height: 100%;
+}
