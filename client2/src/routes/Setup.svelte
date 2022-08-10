@@ -5,10 +5,10 @@
     import { userContext, type UserStore } from "../lib/user";
     import type { User as SteamUser } from "../lib/steam";
 
-    import Button from "../components/Button.svelte";
+    import Button from "../components/widgets/Button.svelte";
+    import Select from "../components/widgets/Select.svelte";
     import Loader from "../components/Loader.svelte";
     import Page from "../components/Page.svelte";
-    import Select from "../components/Select.svelte";
     import SteamAvatar from "../components/SteamAvatar.svelte";
 
     const user = getContext<UserStore>(userContext);

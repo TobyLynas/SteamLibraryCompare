@@ -6,7 +6,7 @@
 
     import { userContext, type User } from "../lib/user";
 
-    import Button from "../components/Button.svelte";
+    import Button from "../components/widgets/Button.svelte";
     import Loader from "../components/Loader.svelte";
     import Page from "../components/Page.svelte";
     import SteamAuth from "../components/SteamAuth.svelte";
