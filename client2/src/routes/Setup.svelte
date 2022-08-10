@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getContext, onMount } from "svelte";
+    import { getContext, tick } from "svelte";
     import Fuse from "fuse.js";
 
     import { userContext, type UserStore } from "../lib/user";
@@ -22,6 +22,19 @@
         keys: ["displayName", "realName"]
     });
 
+    /// Need element ref to dynamically resize
+    let chooseFriendsSelect: HTMLSelectElement;
+
+    async function updateFriends(newFriends: SteamUser[]) {
+        friends = newFriends;
+        fuse.setCollection(friends);
+
+        await tick();
+
+        // Resize select element to fit contents
+        chooseFriendsSelect.style.height = `${chooseFriendsSelect.scrollHeight}px`;
+    }
+
     let searchTerm = "";
 
     enum SortType {
@@ -33,42 +46,40 @@
         Ascending,
         Descending
     }
-
     let sortType = SortType.Name;
     let sortOrder = SortOrder.Ascending;
+
+    function sortFriends(friendA, friendB) {
+        switch (sortType) {
+            case SortType.Name:
+                return friendA.displayName.localeCompare(friendB.displayName);
+            case SortType.DateJoined:
+                return friendA.createdAt - friendB.createdAt;
+            case SortType.LastOnline:
+                return friendB.lastLoggedOffAt - friendA.lastLoggedOffAt;
+        }
+    }
 
     /** Sort friends array when sort type changes. */
     function onSortTypeChanged(ev: Event) {
         sortType = parseInt((ev.target as HTMLSelectElement).value);
-        friends.sort((friendA, friendB) => {
-            switch (sortType) {
-                case SortType.Name:
-                    return friendA.displayName.localeCompare(
-                        friendB.displayName
-                    );
-                case SortType.DateJoined:
-                    return friendA.createdAt - friendB.createdAt;
-                case SortType.LastOnline:
-                    return friendB.lastLoggedOffAt - friendA.lastLoggedOffAt;
-            }
-        });
+        friends.sort(sortFriends);
 
         if (sortOrder === SortOrder.Descending) {
             friends.reverse();
         }
 
-        friends = friends;
-        fuse.setCollection(friends);
+        updateFriends(friends);
     }
 
     /** Reverse friends array if sort order changes. */
     function onSortOrderChanged(ev: Event) {
-        let prevSortOrder = sortOrder;
-        sortOrder = parseInt((ev.target as HTMLSelectElement).value);
-        if (sortOrder !== prevSortOrder) {
-            friends = friends.reverse();
-            fuse.setCollection(friends);
-        }
+        sortOrder =
+            sortOrder === SortOrder.Ascending
+                ? SortOrder.Descending
+                : SortOrder.Ascending;
+
+        updateFriends(friends.reverse());
     }
 
     $: filteredFriends = searchTerm
@@ -79,10 +90,10 @@
         : friends;
 
     user.subscribe(async user => {
-        if (!user) return;
-
-        friends = await user.steamUser?.fetchFriendsList();
-        fuse.setCollection(friends);
+        if (!user?.steamUser) return;
+        updateFriends(
+            (await user.steamUser?.fetchFriendsList()).sort(sortFriends)
+        );
     });
 </script>
 
@@ -91,15 +102,16 @@
         {#if friends?.length}
             <p>Select friends you want to compare libraries with:</p>
             <div class="choose-friends__filter">
-                <div class="choose-friends__search material-icons-pseudo">
+                <div class="choose-friends__search">
                     <input
                         type="text"
-                        bind:value={searchTerm}
                         placeholder="Search friends list"
+                        bind:value={searchTerm}
                     />
+                    <div class="bi bi-search" />
                 </div>
                 <div class="choose-friends__sort">
-                    <label for="sortType">Sort by:</label>
+                    <label class="small" for="sortType">Sort by:</label>
                     <Select
                         value={sortType}
                         on:change={onSortTypeChanged}
@@ -111,19 +123,20 @@
                         <option value={SortType.DateJoined}>Date joined</option>
                         <option value={SortType.LastOnline}>Last online</option>
                     </Select>
-                    <label for="sortOrder" hidden aria-hidden="false"
-                        >Order by:</label
+                    <Button
+                        isGhost
+                        on:click={onSortOrderChanged}
+                        aria-label="Order by"
+                        title={sortOrder === SortOrder.Ascending
+                            ? "Ascending"
+                            : "Descending"}
                     >
-                    <Select
-                        bind:value={sortOrder}
-                        on:change={onSortOrderChanged}
-                        id="sortOrder"
-                        title="Sort order"
-                        disabled={!!searchTerm.length}
-                    >
-                        <option value={SortOrder.Ascending}>Asc</option>
-                        <option value={SortOrder.Descending}>Desc</option>
-                    </Select>
+                        {#if sortOrder === SortOrder.Ascending}
+                            <div class="bi bi-sort-up" />
+                        {:else if sortOrder === SortOrder.Descending}
+                            <div class="bi bi-sort-down" />
+                        {/if}
+                    </Button>
                 </div>
             </div>
             <div class="friends-select">
@@ -131,12 +144,10 @@
                     multiple
                     class="friends-select__select"
                     bind:value={selectedFriends}
+                    bind:this={chooseFriendsSelect}
                 >
                     {#each filteredFriends as friend}
-                        <option
-                            value={friend}
-                            class="friends-select__friend material-icons-pseudo"
-                        >
+                        <option value={friend} class="friends-select__friend">
                             <SteamAvatar user={friend} />
                             <span class="friends-select__name">
                                 {friend.displayName}
@@ -146,20 +157,15 @@
                                     ({friend.realName})
                                 </span>
                             {/if}
+                            <i class="friends-select__check bi bi-check2" />
                         </option>
                     {/each}
                 </select>
             </div>
 
-            {#if selectedFriends.length}
-                <ul>
-                    {#each selectedFriends as friend}
-                        <li>{friend.displayName}</li>
-                    {/each}
-                </ul>
-            {/if}
-
-            <Button disabled={!selectedFriends.length}>Next</Button>
+            <div class="choose-friends__navigation">
+                <Button disabled={!selectedFriends.length}>Next</Button>
+            </div>
         {:else}
             <div class="choose-friends__loader">
                 <Loader />
@@ -172,7 +178,6 @@
 
 <style>
     .choose-friends {
-        --theme-md-icon-size: 18px;
         display: flex;
         flex: 1;
         flex-direction: column;
@@ -189,31 +194,34 @@
     }
 
     .choose-friends__search {
-        position: relative;
+        align-items: center;
+        display: flex;
         flex: 1;
-    }
-    .choose-friends__search::after {
-        color: var(--theme-page-text-secondary);
-        content: "search";
-        position: absolute;
-        right: var(--theme-spacing-md);
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
     }
     .choose-friends__search > input {
-        padding-right: 40px;
+        padding-right: calc(
+            var(--theme-md-icon-size) + (var(--theme-spacing-md) * 2)
+        );
+    }
+    .choose-friends__search > .bi-search {
+        color: var(--theme-page-text-secondary);
+        position: absolute;
+        right: var(--theme-spacing-md);
     }
 
-    .friends-select {
-        flex: 1;
+    .choose-friends__sort {
+        align-items: center;
+        display: flex;
+        gap: var(--theme-spacing-sm);
     }
+
     .friends-select__select {
         appearance: none;
         background: initial;
         border: initial;
         color: inherit;
         font: inherit;
-        height: 100%;
         scrollbar-width: none;
         width: 100%;
     }
@@ -237,8 +245,17 @@
     .friends-select__friend:checked {
         --background-color: var(--theme-friend-selected-background);
     }
-    .friends-select__friend:checked::after {
-        content: "done";
-        margin-left: auto;
+    .friends-select__check {
+        margin-inline-start: auto;
+        display: none;
+    }
+    .friends-select__friend:checked .friends-select__check {
+        display: initial;
+    }
+
+    .choose-friends__navigation {
+        display: flex;
+        justify-content: end;
+        margin-top: var(--theme-spacing-md);
     }
 </style>

@@ -1,4 +1,8 @@
-<button class="button" {...$$restProps} on:click>
+<script lang="ts">
+    export let isGhost = false;
+</script>
+
+<button class="button" class:button--ghost={isGhost} {...$$restProps} on:click>
     <slot />
 </button>
 
@@ -19,6 +23,15 @@
         opacity: 0.5;
     }
 
+    .button--ghost {
+        --theme-md-icon-size: var(--theme-md-icon-lg);
+        background: initial;
+        border: initial;
+        box-shadow: initial;
+        padding: initial;
+        width: 32px;
+    }
+
     .button:hover:not(:disabled) {
         background-color: var(--theme-widget-background-hover);
     }
@@ -31,7 +44,7 @@
     }
 
     .button:focus {
-        box-shadow: 0 0 0 0.2rem var(--theme-widget-focus);
+        box-shadow: var(--theme-widget-focus-shadow);
         outline: none;
     }
 

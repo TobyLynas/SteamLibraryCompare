@@ -3,16 +3,15 @@
     export let disabled: boolean;
 </script>
 
-<div class="select material-icons-pseudo" class:select--disabled={disabled}>
+<div class="select" class:select--disabled={disabled}>
     <select {value} {disabled} {...$$restProps} on:change>
         <slot />
     </select>
+    <i class="bi bi-chevron-down" />
 </div>
 
 <style>
     .select {
-        --spacing: 4px;
-
         align-items: center;
         background-color: var(--theme-widget-background);
         border-radius: 4px;
@@ -22,19 +21,13 @@
         display: inline-flex;
         font-family: var(--theme-base-font-family);
         font-size: var(--theme-base-font-size);
+        gap: var(--theme-spacing-md);
         height: 32px;
         overflow: hidden;
-        position: relative;
+        padding-inline-end: var(--theme-spacing-md);
     }
     .select--disabled {
         opacity: 0.5;
-    }
-    .select::after {
-        content: "\e5c5";
-        font-size: var(--theme-md-icon-sm);
-        position: absolute;
-        right: var(--spacing);
-        pointer-events: none;
     }
 
     .select > select {
@@ -44,19 +37,19 @@
         color: inherit;
         font: inherit;
         height: 100%;
-        padding: 0 var(--spacing);
-        padding-right: calc(var(--theme-md-icon-size) + (var(--spacing) * 2));
-    }
-    .select > select > option {
-        font: inherit;
+        padding-inline-start: var(--theme-spacing-sm);
     }
 
     .select:focus,
     .select:focus-within {
-        box-shadow: 0 0 0 0.2rem var(--theme-widget-focus);
+        box-shadow: var(--theme-widget-focus-shadow);
         outline: none;
     }
     .select:focus-within *:focus {
         outline: none;
+    }
+
+    .bi {
+        color: var(--theme-page-text-secondary);
     }
 </style>

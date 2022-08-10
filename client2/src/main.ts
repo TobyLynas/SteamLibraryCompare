@@ -1,5 +1,5 @@
 import "./app.css";
-import "material-icons/iconfont/material-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 import App from "./App.svelte";
 
