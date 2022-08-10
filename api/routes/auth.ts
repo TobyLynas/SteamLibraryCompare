@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 import passport from "passport";
@@ -79,6 +80,20 @@ passport.deserializeUser((steamId: string, done) => {
 // Auth router
 const router = express.Router();
 router.use(passport.initialize());
+
+router.get(
+    "/logout",
+    cors({
+        origin: process.env.FRONTEND_URL,
+        credentials: true
+    }),
+    authenticateToken(),
+    (req, res) => {
+        res.clearCookie("token");
+        res.clearCookie("steamId");
+        res.send(200);
+    }
+);
 
 /**
  * Auth entry point.

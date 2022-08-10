@@ -8,6 +8,7 @@
     import github32 from "./assets/Github-Mark-32px.png";
     import github64 from "./assets/Github-Mark-64px.png";
 
+    import Button from "./components/widgets/Button.svelte";
     import SteamAuth from "./components/SteamAuth.svelte";
     import SteamUser from "./components/SteamUser.svelte";
 
@@ -36,6 +37,17 @@
             }
         }
     });
+
+    async function logOutUser() {
+        try {
+            await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+                credentials: "include"
+            });
+            user.set(undefined);
+        } catch (err) {
+            // TODO: Handle logout fail
+        }
+    }
 </script>
 
 <div class="site">
@@ -52,6 +64,7 @@
                 <div class="site-header__user">
                     <SteamUser user={$user.steamUser} />
                 </div>
+                <Button on:click={logOutUser}>Log out</Button>
             {/if}
         </div>
     </div>
@@ -134,6 +147,7 @@
     .site-header > .site-width {
         align-items: center;
         display: flex;
+        gap: var(--theme-spacing-lg);
     }
     .site-header__auth {
         margin-left: auto;
