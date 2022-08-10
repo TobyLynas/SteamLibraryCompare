@@ -1,5 +1,4 @@
 import "./app.css";
-import "../public/fonts/inter/inter.css";
 import "material-icons/iconfont/material-icons.css";
 
 import App from "./App.svelte";

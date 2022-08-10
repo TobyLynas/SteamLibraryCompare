@@ -5,7 +5,10 @@
     import { userContext, type UserStore } from "../lib/user";
     import type { User as SteamUser } from "../lib/steam";
 
+    import Button from "../components/Button.svelte";
+    import Loader from "../components/Loader.svelte";
     import Page from "../components/Page.svelte";
+    import Select from "../components/Select.svelte";
     import SteamAvatar from "../components/SteamAvatar.svelte";
 
     const user = getContext<UserStore>(userContext);
@@ -20,6 +23,53 @@
     });
 
     let searchTerm = "";
+
+    enum SortType {
+        Name,
+        DateJoined,
+        LastOnline
+    }
+    enum SortOrder {
+        Ascending,
+        Descending
+    }
+
+    let sortType = SortType.Name;
+    let sortOrder = SortOrder.Ascending;
+
+    /** Sort friends array when sort type changes. */
+    function onSortTypeChanged(ev: Event) {
+        sortType = parseInt((ev.target as HTMLSelectElement).value);
+        friends.sort((friendA, friendB) => {
+            switch (sortType) {
+                case SortType.Name:
+                    return friendA.displayName.localeCompare(
+                        friendB.displayName
+                    );
+                case SortType.DateJoined:
+                    return friendA.createdAt - friendB.createdAt;
+                case SortType.LastOnline:
+                    return friendB.lastLoggedOffAt - friendA.lastLoggedOffAt;
+            }
+        });
+
+        if (sortOrder === SortOrder.Descending) {
+            friends.reverse();
+        }
+
+        friends = friends;
+        fuse.setCollection(friends);
+    }
+
+    /** Reverse friends array if sort order changes. */
+    function onSortOrderChanged(ev: Event) {
+        let prevSortOrder = sortOrder;
+        sortOrder = parseInt((ev.target as HTMLSelectElement).value);
+        if (sortOrder !== prevSortOrder) {
+            friends = friends.reverse();
+            fuse.setCollection(friends);
+        }
+    }
 
     $: filteredFriends = searchTerm
         ? fuse
@@ -40,13 +90,40 @@
     <div class="choose-friends">
         {#if friends?.length}
             <p>Select friends you want to compare libraries with:</p>
-            <div class="choose-friends-filter">
+            <div class="choose-friends__filter">
                 <div class="choose-friends__search material-icons-pseudo">
                     <input
                         type="text"
                         bind:value={searchTerm}
                         placeholder="Search friends list"
                     />
+                </div>
+                <div class="choose-friends__sort">
+                    <label for="sortType">Sort by:</label>
+                    <Select
+                        value={sortType}
+                        on:change={onSortTypeChanged}
+                        id="sortType"
+                        title="Sort type"
+                        disabled={!!searchTerm.length}
+                    >
+                        <option value={SortType.Name}>Name</option>
+                        <option value={SortType.DateJoined}>Date joined</option>
+                        <option value={SortType.LastOnline}>Last online</option>
+                    </Select>
+                    <label for="sortOrder" hidden aria-hidden="false"
+                        >Order by:</label
+                    >
+                    <Select
+                        bind:value={sortOrder}
+                        on:change={onSortOrderChanged}
+                        id="sortOrder"
+                        title="Sort order"
+                        disabled={!!searchTerm.length}
+                    >
+                        <option value={SortOrder.Ascending}>Asc</option>
+                        <option value={SortOrder.Descending}>Desc</option>
+                    </Select>
                 </div>
             </div>
             <div class="friends-select">
@@ -73,7 +150,20 @@
                     {/each}
                 </select>
             </div>
-            {selectedFriends}
+
+            {#if selectedFriends.length}
+                <ul>
+                    {#each selectedFriends as friend}
+                        <li>{friend.displayName}</li>
+                    {/each}
+                </ul>
+            {/if}
+
+            <Button disabled={!selectedFriends.length}>Next</Button>
+        {:else}
+            <div class="choose-friends__loader">
+                <Loader />
+            </div>
         {/if}
     </div>
 
@@ -88,9 +178,19 @@
         flex-direction: column;
         gap: var(--theme-spacing-md);
     }
+    .choose-friends__loader {
+        margin: var(--theme-spacing-lg);
+    }
+
+    .choose-friends__filter {
+        align-items: center;
+        display: flex;
+        gap: var(--theme-spacing-lg);
+    }
 
     .choose-friends__search {
         position: relative;
+        flex: 1;
     }
     .choose-friends__search::after {
         color: var(--theme-page-text-secondary);

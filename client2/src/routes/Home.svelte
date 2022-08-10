@@ -2,8 +2,12 @@
     import { getContext } from "svelte";
     import type { Writable } from "svelte/store";
 
+    import { push } from "svelte-spa-router";
+
     import { userContext, type User } from "../lib/user";
 
+    import Button from "../components/Button.svelte";
+    import Loader from "../components/Loader.svelte";
     import Page from "../components/Page.svelte";
     import SteamAuth from "../components/SteamAuth.svelte";
 
@@ -12,7 +16,16 @@
 
 <Page>
     {#if $user}
-        <p>SteamID: {$user?.steamId}</p>
+        {#if !$user.steamUser}
+            <Loader />
+        {:else}
+            <p>
+                {$user?.steamUser?.displayName}
+                <span class="small">[SteamID: {$user?.steamId}]</span>
+            </p>
+
+            <Button on:click={() => push("/setup")}>Setup</Button>
+        {/if}
     {:else}
         <section class="box intro">
             <h2 class="box__title">Getting Started</h2>

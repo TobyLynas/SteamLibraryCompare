@@ -21,7 +21,7 @@
     --theme-friend-selected-background: #529c6b;
 
     /* Button */
-    --theme-widget-background: #2f4b67;
+    --theme-widget-background: #1b2838;
     --theme-widget-background-hover: #224e7a;
     --theme-widget-background-active: #1898d0;
     --theme-widget-focus: #00b3ff77;
@@ -97,7 +97,7 @@ h6 {
 }
 
 input[type="text"] {
-    background: initial;
+    background-color: var(--theme-widget-background);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);

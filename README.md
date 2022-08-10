@@ -4,37 +4,39 @@
 
 ### Shared scripts
 
-* `npm run dev`  
-  Builds the project (watching for changes) and starts a development server.
+-   `npm run dev`  
+    Builds the project (watching for changes) and starts a development server.
 
-* `npm run build`  
-  Builds the project.
+-   `npm run build`  
+    Builds the project.
 
 ### API scripts
 
-* `npm run start`  
-  Runs the project in production mode. Compile with `npm run build` script first.
+-   `npm run start`  
+    Runs the project in production mode. Compile with `npm run build` script first.
 
-* `npm run lint`  
-  Runs eslint.
+-   `npm run lint`  
+     Runs eslint.
 
 ### Client scripts
 
-* `npm run test`  
-  Runs tests.
-
+-   `npm run test`  
+    Runs tests.
 
 ## Server:
 
 ### Setup
 
-Before running the API server, generate a TLS certificate with OpenSSL, ensuring that the output paths match the cert/key file variables set in [`.env`](./.env):
+Before running the API server, generate a TLS certificate with OpenSSL, ensuring that the output paths match the cert/key file variables set in [`api/.env`](api/.env):
+
 ```sh
 openssl req -newkey rsa:2048 -nodes -keyout tls/key.pem -x509 -days 365 -out tls/cert.pem
 ```
+
 Above outputs:
-* `tls/cert.pem` (TLS_CERT_FILE)
-* `tls/key.pem` (TLS_KEY_FILE)
+
+-   `tls/cert.pem` (TLS_CERT_FILE)
+-   `tls/key.pem` (TLS_KEY_FILE)
 
 ### Running
 
@@ -44,9 +46,8 @@ Requires environment variables to be configured (see [`api/.env.example`](./api/
 
 For additional info, see [`api/README.md`](api/README.md).
 
-
-
 ## Client:
-To run the React client, enter the `client/` directory and run `npm run dev`. The client server will then run on [http://localhost:3000](http://localhost:3000).
 
-Requires environent variables to be configured (see [api/.env.example](./client/.env.example)).
+To run the client app, enter the `client2/` directory and run `npm run dev`. The client dev server will then start at [http://localhost:5173](http://localhost:5173).
+
+Requires environent variables to be configured (see [`client2/.env.example`](./client2/.env.example)).

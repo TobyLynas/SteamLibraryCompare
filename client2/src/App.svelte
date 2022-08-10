@@ -40,7 +40,7 @@
     <div class="site-header">
         <div class="site-width">
             <h1 class="site-title">
-                <a href="/" use:link>SteamLibraryCompare</a>
+                <a href="/" use:link>{import.meta.env.VITE_APP_NAME}</a>
             </h1>
             {#if !$user}
                 <div class="auth">
@@ -61,7 +61,7 @@
         <div class="site-width">
             <a
                 class="github-link"
-                href="javascript:void(0)"
+                href={import.meta.env.VITE_APP_GH_URL}
                 title="Visit GitHub repository"
             >
                 <img
@@ -72,7 +72,7 @@
                 />
             </a>
             <div>
-                <p class="copyright">&copy; 2022 SteamLibraryCompare</p>
+                <p class="copyright">&copy; 2022 {import.meta.env.VITE_APP_NAME}</p>
                 <p class="small">
                     This app is a community website and is not affiliated with
                     Valve or Steam.
