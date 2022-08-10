@@ -16,7 +16,7 @@
     let isFriendsError = false;
 
     let friends: SteamUser[] = [];
-    let selectedFriends: SteamUser[] = [];
+    let selectedFriendIds: string[] = [];
 
     // Fuzzy searching
     const fuse = new Fuse(friends, {
@@ -150,11 +150,17 @@
                 <select
                     multiple
                     class="friends-select__select"
-                    bind:value={selectedFriends}
+                    bind:value={selectedFriendIds}
                     bind:this={chooseFriendsSelect}
                 >
                     {#each filteredFriends as friend}
-                        <option value={friend} class="friends-select__friend">
+                        <option
+                            class="friends-select__friend"
+                            value={friend.steamId}
+                            selected={selectedFriendIds.includes(
+                                friend.steamId
+                            )}
+                        >
                             <SteamAvatar user={friend} />
                             <span class="friends-select__name">
                                 {friend.displayName}
@@ -171,7 +177,7 @@
             </div>
 
             <div class="choose-friends__navigation">
-                <Button disabled={!selectedFriends.length}>Next</Button>
+                <Button disabled={!selectedFriendIds.length}>Next</Button>
             </div>
         {:else if isFriendsError}
             <div class="message message--error">
