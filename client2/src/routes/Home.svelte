@@ -17,7 +17,13 @@
 <Page>
     {#if $user}
         {#if !$user.steamUser}
-            <Loader />
+            {#if $user.steamUserError}
+                <div class="message message--error">
+                    Failed to fetch player summary!
+                </div>
+            {:else}
+                <Loader />
+            {/if}
         {:else}
             <p>
                 {$user?.steamUser?.displayName}
@@ -47,9 +53,7 @@
             <div class="auth">
                 <SteamAuth
                     isLarge
-                    on:authSuccess={ev => {
-                        user.set({ steamId: ev.detail.steamId });
-                    }}
+                    on:authSuccess={ev => user.set(ev.detail)}
                     on:authFailed={() => console.log("onAuthFailed")}
                 />
             </div>

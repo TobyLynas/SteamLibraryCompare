@@ -26,12 +26,13 @@
         if (!userStore) return;
 
         // Set initial user
-        if (!$user.steamUser) {
-            const steamUser = await steam.getUserById(userStore.steamId);
-            user.update(user => {
-                user.steamUser = steamUser;
-                return user;
-            });
+        if (!$user.steamUser && !$user.steamUserError) {
+            try {
+                const steamUser = await steam.getUserById(userStore.steamId);
+                user.update(user => ({ ...user, steamUser }));
+            } catch (err) {
+                user.update(user => ({ ...user, steamUserError: true }));
+            }
         }
     });
 </script>
@@ -44,10 +45,7 @@
             </h1>
             {#if !$user}
                 <div class="auth">
-                    <SteamAuth
-                        on:authSuccess={ev =>
-                            user.set({ steamId: ev.detail.steamId })}
-                    />
+                    <SteamAuth on:authSuccess={ev => user.set(ev.detail)} />
                 </div>
             {/if}
         </div>
@@ -72,7 +70,9 @@
                 />
             </a>
             <div>
-                <p class="copyright">&copy; 2022 {import.meta.env.VITE_APP_NAME}</p>
+                <p class="copyright">
+                    &copy; 2022 {import.meta.env.VITE_APP_NAME}
+                </p>
                 <p class="small">
                     This app is a community website and is not affiliated with
                     Valve or Steam.

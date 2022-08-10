@@ -4,6 +4,8 @@ import type { User as SteamUser } from "./steam";
 export interface User {
     steamId: string;
     steamUser?: SteamUser;
+
+    steamUserError: boolean;
 }
 export type UserStore = Writable<User>;
 
@@ -13,6 +15,8 @@ const steamId = document.cookie
     .find(cookie => cookie.startsWith("steamId="))
     ?.split("=")[1];
 
-export default writable<User>(steamId ? { steamId } : null);
+export default writable<User>(
+    steamId ? { steamId, steamUserError: false } : null
+);
 
 export const userContext = Symbol();

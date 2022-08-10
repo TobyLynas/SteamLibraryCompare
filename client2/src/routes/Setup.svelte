@@ -13,6 +13,8 @@
 
     const user = getContext<UserStore>(userContext);
 
+    let isFriendsError = false;
+
     let friends: SteamUser[] = [];
     let selectedFriends: SteamUser[] = [];
 
@@ -91,9 +93,14 @@
 
     user.subscribe(async user => {
         if (!user?.steamUser) return;
-        updateFriends(
-            (await user.steamUser?.fetchFriendsList()).sort(sortFriends)
-        );
+
+        try {
+            updateFriends(
+                (await user.steamUser?.fetchFriendsList()).sort(sortFriends)
+            );
+        } catch (err) {
+            isFriendsError = true;
+        }
     });
 </script>
 
@@ -165,6 +172,10 @@
 
             <div class="choose-friends__navigation">
                 <Button disabled={!selectedFriends.length}>Next</Button>
+            </div>
+        {:else if isFriendsError}
+            <div class="message message--error">
+                Failed to fetch friends list!
             </div>
         {:else}
             <div class="choose-friends__loader">
@@ -257,5 +268,9 @@
         display: flex;
         justify-content: end;
         margin-top: var(--theme-spacing-md);
+    }
+
+    .message {
+        margin: var(--theme-spacing-md) 0;
     }
 </style>

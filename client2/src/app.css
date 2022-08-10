@@ -141,6 +141,26 @@ input[type="text"]:focus {
     font-size: 0.85em;
 }
 
+.message {
+    --theme-md-icon-size: var(--theme-md-icon-lg);
+    align-items: center;
+    background-clip: border-box;
+    border-radius: 4px;
+    display: flex;
+    font-size: var(--theme-font-size-md);
+    gap: var(--theme-spacing-md);
+    padding: var(--theme-spacing-md);
+}
+.message--error {
+    background-color: #a73636;
+    color: white;
+}
+.message--error::before {
+    content: "\F333";
+    font-family: "bootstrap-icons";
+    font-size: var(--theme-md-icon-size);
+}
+
 /* App root */
 #app {
     height: 100%;

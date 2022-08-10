@@ -77,7 +77,8 @@
 
         // Pass user details
         dispatch("authSuccess", {
-            steamId: tokenPayload.steamId
+            steamId: tokenPayload.steamId,
+            steamUserError: false
         });
     }
 
