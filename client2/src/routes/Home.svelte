@@ -26,8 +26,8 @@
             {/if}
         {:else}
             <p>
-                {$user?.steamUser?.displayName}
-                <span class="small">[SteamID: {$user?.steamId}]</span>
+                {$user.steamUser.displayName}
+                <span class="small">[SteamID: {$user.steamId}]</span>
             </p>
 
             <Button on:click={() => push("/setup")}>Setup</Button>

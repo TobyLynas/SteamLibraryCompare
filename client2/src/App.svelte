@@ -9,6 +9,7 @@
     import github64 from "./assets/Github-Mark-64px.png";
 
     import SteamAuth from "./components/SteamAuth.svelte";
+    import SteamUser from "./components/SteamUser.svelte";
 
     import Home from "./routes/Home.svelte";
     import Setup from "./routes/Setup.svelte";
@@ -44,8 +45,12 @@
                 <a href="/" use:link>{import.meta.env.VITE_APP_NAME}</a>
             </h1>
             {#if !$user}
-                <div class="auth">
+                <div class="site-header__auth">
                     <SteamAuth on:authSuccess={ev => user.set(ev.detail)} />
+                </div>
+            {:else if $user.steamUser}
+                <div class="site-header__user">
+                    <SteamUser user={$user.steamUser} />
                 </div>
             {/if}
         </div>
@@ -101,6 +106,7 @@
     .site-header {
         background-color: var(--theme-header-background);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        height: 64px;
         padding: 10px 0;
     }
     .site-title {
@@ -129,8 +135,11 @@
         align-items: center;
         display: flex;
     }
-    .auth {
+    .site-header__auth {
         margin-left: auto;
+    }
+    .site-header__user {
+        margin-inline-start: auto;
     }
 
     .site-footer > .site-width {
