@@ -21,7 +21,6 @@
         display: inline-flex;
         font-family: var(--theme-base-font-family);
         font-size: var(--theme-base-font-size);
-        gap: var(--theme-spacing-md);
         height: 32px;
         overflow: hidden;
         padding-inline-end: var(--theme-spacing-md);
@@ -31,6 +30,7 @@
     }
 
     .select > select {
+        --icon-width: calc(var(--theme-spacing-md) + var(--theme-md-icon-size));
         appearance: none;
         background: inherit;
         border: initial;
@@ -38,6 +38,8 @@
         font: inherit;
         height: 100%;
         padding-inline-start: var(--theme-spacing-sm);
+        padding-inline-end: calc(var(--icon-width) + var(--theme-spacing-md));
+        margin-right: calc(0px - var(--icon-width));
     }
 
     .select:focus,
@@ -51,5 +53,6 @@
 
     .bi {
         color: var(--theme-page-text-secondary);
+        pointer-events: none;
     }
 </style>
