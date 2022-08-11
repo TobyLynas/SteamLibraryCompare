@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { getContext, tick } from "svelte";
+    import { onMount, getContext, tick } from "svelte";
     import Fuse from "fuse.js";
 
     import type { User as SteamUser } from "../../lib/steam";
@@ -90,12 +90,12 @@
               .map(result => result.item)
         : $setupData.friends;
 
-    user.subscribe(async user => {
-        if (!user?.steamUser) return;
+    onMount(async () => {
+        if (!$user?.steamUser) return;
 
         try {
             updateFriends(
-                (await user.steamUser?.fetchFriendsList()).sort(sortFriends)
+                (await $user.steamUser.fetchFriendsList()).sort(sortFriends)
             );
         } catch (err) {
             isFriendsError = true;

@@ -9,9 +9,11 @@
 </script>
 
 <script lang="ts">
-    import { setContext } from "svelte";
+    import { getContext, setContext } from "svelte";
     import { writable, type Writable } from "svelte/store";
     import Router, { push } from "svelte-spa-router";
+
+    import { userContext, type UserStore } from "../../user";
 
     import Page from "../../components/Page.svelte";
     import SteamUser from "../../components/SteamUser.svelte";
@@ -31,7 +33,12 @@
         })
     );
 
-    push(`${prefix}/friends`);
+    const user = getContext<UserStore>(userContext);
+    if (!$user?.steamUser) {
+        push("/");
+    } else {
+        push(`${prefix}/friends`);
+    }
 </script>
 
 <Page title="Setup">

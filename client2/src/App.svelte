@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Router, { link } from "svelte-spa-router";
+    import Router, { link, push } from "svelte-spa-router";
     import { setContext } from "svelte";
 
     import Steam from "./lib/steam";
@@ -46,6 +46,8 @@
                 credentials: "include"
             });
             user.set(undefined);
+
+            push("/");
         } catch (err) {
             // TODO: Handle logout fail
         }
