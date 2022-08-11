@@ -1,5 +1,5 @@
 import { writable, type Writable } from "svelte/store";
-import type { User as SteamUser } from "./steam";
+import type { User as SteamUser } from "./lib/steam";
 
 export interface User {
     steamId: string;

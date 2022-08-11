@@ -6,6 +6,12 @@
 
     export let user: User;
     export let showLastOnline = false;
+
+    $: formattedTime =
+        user.lastLoggedOffAt &&
+        formatDistanceToNow(new Date(user.lastLoggedOffAt * 1000), {
+            addSuffix: true
+        });
 </script>
 
 <div class="steam-user">
@@ -21,12 +27,9 @@
                 >({user.realName})</span
             >
         {/if}
-        {#if showLastOnline}
+        {#if showLastOnline && formattedTime}
             <div class="steam-user__since small secondary">
-                Last online {formatDistanceToNow(
-                    new Date(user.lastLoggedOffAt * 1000),
-                    { addSuffix: true }
-                )}
+                Last online {formattedTime}
             </div>
         {/if}
     </div>

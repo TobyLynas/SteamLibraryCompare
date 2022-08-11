@@ -2,34 +2,33 @@
     import { getContext, tick } from "svelte";
     import Fuse from "fuse.js";
 
-    import { userContext, type UserStore } from "../lib/user";
-    import type { User as SteamUser } from "../lib/steam";
+    import type { User as SteamUser } from "../../lib/steam";
 
-    import Button from "../components/widgets/Button.svelte";
-    import Select from "../components/widgets/Select.svelte";
-    import Loader from "../components/Loader.svelte";
-    import Page from "../components/Page.svelte";
-    import SteamAvatar from "../components/SteamAvatar.svelte";
+    import Button from "../../components/widgets/Button.svelte";
+    import Select from "../../components/widgets/Select.svelte";
+    import Loader from "../../components/Loader.svelte";
+    import SteamAvatar from "../../components/SteamAvatar.svelte";
 
+    import { userContext, type UserStore } from "../../user";
     const user = getContext<UserStore>(userContext);
+
+    import type { SetupStore } from "./Index.svelte";
+    const setupData = getContext<SetupStore>("setupData");
 
     let isFriendsError = false;
 
-    let friends: SteamUser[] = [];
-    let selectedFriendIds: string[] = [];
-
     // Fuzzy searching
-    const fuse = new Fuse(friends, {
+    const fuse = new Fuse($setupData.friends, {
         includeScore: true,
         keys: ["displayName", "realName"]
     });
 
-    /// Need element ref to dynamically resize
+    // Need element ref to dynamically resize
     let chooseFriendsSelect: HTMLSelectElement;
 
     async function updateFriends(newFriends: SteamUser[]) {
-        friends = newFriends;
-        fuse.setCollection(friends);
+        $setupData.friends = newFriends;
+        fuse.setCollection($setupData.friends);
 
         await tick();
 
@@ -65,13 +64,13 @@
     /** Sort friends array when sort type changes. */
     function onSortTypeChanged(ev: Event) {
         sortType = parseInt((ev.target as HTMLSelectElement).value);
-        friends.sort(sortFriends);
+        $setupData.friends.sort(sortFriends);
 
         if (sortOrder === SortOrder.Descending) {
-            friends.reverse();
+            $setupData.friends.reverse();
         }
 
-        updateFriends(friends);
+        updateFriends($setupData.friends);
     }
 
     /** Reverse friends array if sort order changes. */
@@ -81,7 +80,7 @@
                 ? SortOrder.Descending
                 : SortOrder.Ascending;
 
-        updateFriends(friends.reverse());
+        updateFriends($setupData.friends.reverse());
     }
 
     $: filteredFriends = searchTerm
@@ -89,7 +88,7 @@
               .search(searchTerm)
               .filter(result => result.score <= 0.25)
               .map(result => result.item)
-        : friends;
+        : $setupData.friends;
 
     user.subscribe(async user => {
         if (!user?.steamUser) return;
@@ -104,94 +103,86 @@
     });
 </script>
 
-<Page title="Choose Friends">
-    <div class="choose-friends">
-        {#if friends?.length}
-            <p>Select friends you want to compare libraries with:</p>
-            <div class="choose-friends__filter">
-                <div class="choose-friends__search">
-                    <input
-                        type="text"
-                        placeholder="Search friends list"
-                        bind:value={searchTerm}
-                    />
-                    <div class="bi bi-search" />
-                </div>
-                <div class="choose-friends__sort">
-                    <label class="small" for="sortType">Sort by:</label>
-                    <Select
-                        value={sortType}
-                        on:change={onSortTypeChanged}
-                        id="sortType"
-                        title="Sort type"
-                        disabled={!!searchTerm.length}
-                    >
-                        <option value={SortType.Name}>Name</option>
-                        <option value={SortType.DateJoined}>Date joined</option>
-                        <option value={SortType.LastOnline}>Last online</option>
-                    </Select>
-                    <Button
-                        isGhost
-                        on:click={onSortOrderChanged}
-                        aria-label="Order by"
-                        title={sortOrder === SortOrder.Ascending
-                            ? "Ascending"
-                            : "Descending"}
-                    >
-                        {#if sortOrder === SortOrder.Ascending}
-                            <div class="bi bi-sort-up" />
-                        {:else if sortOrder === SortOrder.Descending}
-                            <div class="bi bi-sort-down" />
-                        {/if}
-                    </Button>
-                </div>
+<div class="choose-friends">
+    {#if $setupData.friends?.length}
+        <p>Select friends you want to compare libraries with:</p>
+        <div class="choose-friends__filter">
+            <div class="choose-friends__search">
+                <input
+                    type="text"
+                    placeholder="Search friends list"
+                    bind:value={searchTerm}
+                />
+                <div class="bi bi-search" />
             </div>
-            <div class="friends-select">
-                <select
-                    multiple
-                    class="friends-select__select"
-                    bind:value={selectedFriendIds}
-                    bind:this={chooseFriendsSelect}
+            <div class="choose-friends__sort">
+                <label class="small" for="sortType">Sort by:</label>
+                <Select
+                    value={sortType}
+                    on:change={onSortTypeChanged}
+                    id="sortType"
+                    title="Sort type"
+                    disabled={!!searchTerm.length}
                 >
-                    {#each filteredFriends as friend}
-                        <option
-                            class="friends-select__friend"
-                            value={friend.steamId}
-                            selected={selectedFriendIds.includes(
-                                friend.steamId
-                            )}
-                        >
-                            <SteamAvatar user={friend} />
-                            <span class="friends-select__name">
-                                {friend.displayName}
+                    <option value={SortType.Name}>Name</option>
+                    <option value={SortType.DateJoined}>Date joined</option>
+                    <option value={SortType.LastOnline}>Last online</option>
+                </Select>
+                <Button
+                    isGhost
+                    on:click={onSortOrderChanged}
+                    aria-label="Order by"
+                    title={sortOrder === SortOrder.Ascending
+                        ? "Ascending"
+                        : "Descending"}
+                >
+                    {#if sortOrder === SortOrder.Ascending}
+                        <div class="bi bi-sort-up" />
+                    {:else if sortOrder === SortOrder.Descending}
+                        <div class="bi bi-sort-down" />
+                    {/if}
+                </Button>
+            </div>
+        </div>
+        <div class="friends-select">
+            <select
+                multiple
+                class="friends-select__select"
+                bind:value={$setupData.selectedFriends}
+                bind:this={chooseFriendsSelect}
+            >
+                {#each filteredFriends as friend}
+                    <option
+                        class="friends-select__friend"
+                        value={friend}
+                        selected={$setupData.selectedFriends.includes(friend)}
+                    >
+                        <SteamAvatar user={friend} />
+                        <span class="friends-select__name">
+                            {friend.displayName}
+                        </span>
+                        {#if friend.realName}
+                            <span class="secondary small">
+                                ({friend.realName})
                             </span>
-                            {#if friend.realName}
-                                <span class="secondary small">
-                                    ({friend.realName})
-                                </span>
-                            {/if}
-                            <i class="friends-select__check bi bi-check2" />
-                        </option>
-                    {/each}
-                </select>
-            </div>
+                        {/if}
+                        <i class="friends-select__check bi bi-check2" />
+                    </option>
+                {/each}
+            </select>
+        </div>
 
-            <div class="choose-friends__navigation">
-                <Button disabled={!selectedFriendIds.length}>Next</Button>
-            </div>
-        {:else if isFriendsError}
-            <div class="message message--error">
-                Failed to fetch friends list!
-            </div>
-        {:else}
-            <div class="choose-friends__loader">
-                <Loader />
-            </div>
-        {/if}
-    </div>
-
-    <div slot="sidebar" />
-</Page>
+        <div class="choose-friends__navigation">
+            <Button disabled={!$setupData.selectedFriends.length}>Next</Button>
+        </div>
+    {:else if isFriendsError}
+        <div class="message message--error">Failed to fetch friends list!</div>
+    {:else}
+        <div class="choose-friends__loader">
+            <Loader />
+        </div>
+    {/if}
+</div>
 
 <style>
     .choose-friends {

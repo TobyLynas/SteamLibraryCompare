@@ -2,7 +2,7 @@
     import { createEventDispatcher, onMount } from "svelte";
     import * as jose from "jose";
 
-    import type { User } from "../lib/user";
+    import type { User } from "../user";
 
     export let isLarge = false;
 

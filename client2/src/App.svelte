@@ -2,22 +2,24 @@
     import Router, { link } from "svelte-spa-router";
     import { setContext } from "svelte";
 
-    import user, { userContext } from "./lib/user";
     import Steam from "./lib/steam";
-
-    import github32 from "./assets/Github-Mark-32px.png";
-    import github64 from "./assets/Github-Mark-64px.png";
 
     import Button from "./components/widgets/Button.svelte";
     import SteamAuth from "./components/SteamAuth.svelte";
     import SteamUser from "./components/SteamUser.svelte";
 
     import Home from "./routes/Home.svelte";
-    import Setup from "./routes/Setup.svelte";
+    import Setup from "./routes/setup/Index.svelte";
+
+    import github32 from "./assets/Github-Mark-32px.png";
+    import github64 from "./assets/Github-Mark-64px.png";
+
+    import user, { userContext } from "./user";
 
     const routes = {
         "/": Home,
-        "/setup": Setup
+        "/setup": Setup,
+        "/setup/*": Setup
     };
 
     setContext(userContext, user);
@@ -60,21 +62,32 @@
                 <div class="site-header__auth">
                     <SteamAuth on:authSuccess={ev => user.set(ev.detail)} />
                 </div>
-            {:else if $user.steamUser}
+            {:else}
                 <div class="site-header__user">
-                    <SteamUser user={$user.steamUser} />
+                    {#if $user.steamUser}
+                        <SteamUser user={$user.steamUser} />
+                    {/if}
+                    <Button on:click={logOutUser}>Log out</Button>
                 </div>
-                <Button on:click={logOutUser}>Log out</Button>
             {/if}
         </div>
     </div>
     <main class="site-content">
         <div class="site-width">
-            <Router {routes} restoreScrollState={true} />
+            <Router {routes} />
         </div>
     </main>
     <div class="site-footer">
         <div class="site-width">
+            <div>
+                <p class="site-footer__copyright">
+                    &copy; 2022 {import.meta.env.VITE_APP_NAME}
+                </p>
+                <p class="small">
+                    This app is a community website and is not affiliated with
+                    Valve or Steam.
+                </p>
+            </div>
             <a
                 class="github-link"
                 href={import.meta.env.VITE_APP_GH_URL}
@@ -87,15 +100,6 @@
                     height="32"
                 />
             </a>
-            <div>
-                <p class="copyright">
-                    &copy; 2022 {import.meta.env.VITE_APP_NAME}
-                </p>
-                <p class="small">
-                    This app is a community website and is not affiliated with
-                    Valve or Steam.
-                </p>
-            </div>
         </div>
     </div>
 </div>
@@ -124,7 +128,7 @@
     }
     .site-title {
         font-weight: 500;
-        font-size: var(--theme-font-size-xlg);
+        font-size: var(--theme-font-size-xxlg);
     }
 
     .site-content {
@@ -153,6 +157,8 @@
         margin-left: auto;
     }
     .site-header__user {
+        display: flex;
+        gap: inherit;
         margin-inline-start: auto;
     }
 
@@ -161,7 +167,13 @@
         display: flex;
         gap: var(--theme-spacing-lg);
     }
-    .copyright {
+    .site-footer p {
+        margin: var(--theme-spacing-sm);
+    }
+    .site-footer__copyright {
         color: #b8d6ee;
+    }
+    .github-link {
+        margin-inline-start: auto;
     }
 </style>
