@@ -21,7 +21,7 @@
                     Failed to fetch player summary!
                 </div>
             {:else}
-                <Loader />
+                <Loader label="Fetching user data" />
             {/if}
         {:else}
             <p>

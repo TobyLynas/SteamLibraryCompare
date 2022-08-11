@@ -1,8 +1,11 @@
 <script lang="ts">
-    export let hasAutoMargin = false;
+    export let label: string | undefined = undefined;
 </script>
 
-<div class="loader" class:hasAutoMargin>Loading...</div>
+<div class="loader" class:loader--labelled={!!label}>
+    <div class="loader__spinner" />
+    {label ?? "Loading..."}
+</div>
 
 <style>
     @keyframes loader {
@@ -15,16 +18,20 @@
     }
 
     .loader {
+        display: flex;
+        gap: var(--theme-spacing-lg);
+        font-size: 0;
+    }
+    .loader--labelled {
+        font-size: var(--theme-font-size-lg);
+    }
+    .loader__spinner {
         animation: 0.5s ease loader infinite;
         border: 6px solid;
         border-color: transparent currentColor;
         border-radius: 50%;
-        font-size: 0;
         height: 24px;
         opacity: 0.5;
         width: 24px;
-    }
-    .hasAutoMargin {
-        margin: 0 auto;
     }
 </style>

@@ -179,7 +179,7 @@
         <div class="message message--error">Failed to fetch friends list!</div>
     {:else}
         <div class="choose-friends__loader">
-            <Loader />
+            <Loader label="Fetching friends list" />
         </div>
     {/if}
 </div>
@@ -193,6 +193,7 @@
     }
     .choose-friends__loader {
         margin: var(--theme-spacing-lg);
+        margin-top: var(--theme-spacing-xlg);
     }
 
     .choose-friends__filter {
