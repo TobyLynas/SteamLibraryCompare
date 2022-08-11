@@ -151,11 +151,12 @@
                 bind:value={$setupData.selectedFriends}
                 bind:this={chooseFriendsSelect}
             >
-                {#each filteredFriends as friend}
+                {#each $setupData.friends as friend}
                     <option
                         class="friends-select__friend"
                         value={friend}
                         selected={$setupData.selectedFriends.includes(friend)}
+                        hidden={!filteredFriends.includes(friend)}
                     >
                         <SteamAvatar user={friend} />
                         <span class="friends-select__name">
@@ -253,6 +254,9 @@
     }
     .friends-select__friend:checked {
         --background-color: var(--theme-friend-selected-background);
+    }
+    .friends-select__friend[hidden] {
+        display: none;
     }
     .friends-select__check {
         margin-inline-start: auto;
